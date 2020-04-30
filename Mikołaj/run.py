@@ -36,135 +36,145 @@ player_4 = User(okno,4)
 
 
 def board_draw():
-    pygame.draw.rect(okno, (0, 0, 0), (0, 0, 225, 224))
-    pygame.draw.rect(okno, (0, 150, 0), (1, 1, 224, 223))
-    pygame.draw.rect(okno, (0, 0, 0), (49, 49, 123, 123))
-    pygame.draw.rect(okno, (255, 255, 255), (50, 50, 121, 121))
+    pygame.draw.rect(okno, (0, 0, 0), (0, 0, 288, 288))
+    pygame.draw.rect(okno, (0, 150, 0), (1, 1, 286, 286))
+    pygame.draw.rect(okno, (0, 0, 0), (49, 49, 190, 190))
+    pygame.draw.rect(okno, (255, 255, 255), (50, 50, 188, 188))
 
-    pygame.draw.ellipse(okno, (0, 150, 0), (60, 60, 45, 45))
-    pygame.draw.ellipse(okno, (0, 150, 0), (115, 60, 45, 45))
-    pygame.draw.ellipse(okno, (0, 150, 0), (60, 115, 45, 45))
-    pygame.draw.ellipse(okno, (0, 150, 0), (115, 115, 45, 45))
+    pygame.draw.ellipse(okno, (0, 150, 0), (52, 52, 90, 90))
+    pygame.draw.ellipse(okno, (0, 150, 0), (144, 52, 90, 90))
+    pygame.draw.ellipse(okno, (0, 150, 0), (52, 144, 90, 90))
+    pygame.draw.ellipse(okno, (0, 150, 0), (144, 144, 90, 90))
 
-    pygame.draw.rect(okno, (0, 0, 0), (225, 0, 150, 225))
+    pygame.draw.rect(okno, (0, 0, 0), (288, 0, 144, 144))
 
-    pygame.draw.rect(okno, (0, 0, 0), (375, 0, 225, 224))
-    pygame.draw.rect(okno, (255, 0, 0), (376, 1, 224, 223))
-    pygame.draw.rect(okno, (0, 0, 0), (430, 49, 123, 123))
-    pygame.draw.rect(okno, (255, 255, 255), (431, 50, 121, 121))
+    pygame.draw.rect(okno, (0, 0, 0), (431, 0, 288, 288))
+    pygame.draw.rect(okno, (255, 0, 0), (432, 1, 286, 286))
+    pygame.draw.rect(okno, (0, 0, 0), (480, 49, 190, 190))
+    pygame.draw.rect(okno, (255, 255, 255), (481, 50, 188, 188))
 
-    pygame.draw.ellipse(okno, (255, 0, 0), (435, 60, 45, 45))
-    pygame.draw.ellipse(okno, (255, 0, 0), (490, 60, 45, 45))
-    pygame.draw.ellipse(okno, (255, 0, 0), (435, 115, 45, 45))
-    pygame.draw.ellipse(okno, (255, 0, 0), (490, 115, 45, 45))
+    pygame.draw.ellipse(okno, (255, 0, 0), (483, 52, 90, 90))
+    pygame.draw.ellipse(okno, (255, 0, 0), (575, 52, 90, 90))
+    pygame.draw.ellipse(okno, (255, 0, 0), (483, 144, 90, 90))
+    pygame.draw.ellipse(okno, (255, 0, 0), (575, 144, 90, 90))
 
-    pygame.draw.rect(okno, (255, 255, 255), (226, 1, 49, 36))
-    pygame.draw.rect(okno, (255, 255, 255), (276, 1, 49, 36))  # 1
-    pygame.draw.rect(okno, (255, 255, 255), (326, 1, 49, 36))
-    pygame.draw.rect(okno, (255, 255, 255), (226, 38, 49, 36))
-    pygame.draw.rect(okno, (255, 0, 0), (276, 38, 49, 36))  # 2
-    pygame.draw.rect(okno, (255, 0, 0), (326, 38, 49, 36))
-    pygame.draw.rect(okno, (255, 255, 255), (226, 75, 49, 36))
-    pygame.draw.rect(okno, (255, 0, 0), (276, 75, 49, 36))  # 3
-    pygame.draw.rect(okno, (255, 255, 255), (326, 75, 49, 36))
-    pygame.draw.rect(okno, (255, 255, 255), (226, 112, 49, 36))
-    pygame.draw.rect(okno, (255, 0, 0), (276, 112, 49, 36))  # 4
-    pygame.draw.rect(okno, (255, 255, 255), (326, 112, 49, 36))
-    pygame.draw.rect(okno, (255, 255, 255), (226, 149, 49, 36))
-    pygame.draw.rect(okno, (255, 0, 0), (276, 149, 49, 36))  # 5
-    pygame.draw.rect(okno, (255, 255, 255), (326, 149, 49, 36))
-    pygame.draw.rect(okno, (255, 255, 255), (226, 186, 49, 37))
-    pygame.draw.rect(okno, (255, 0, 0), (276, 186, 49, 37))  # 6
-    pygame.draw.rect(okno, (255, 255, 255), (326, 186, 49, 37))
+    pygame.draw.rect(okno, (255, 255, 255), (288, 1, 47, 47))
+    pygame.draw.rect(okno, (255, 255, 255), (336, 1, 47, 47))  # 1
+    pygame.draw.rect(okno, (255, 255, 255), (384, 1, 47, 47))
+    pygame.draw.rect(okno, (255, 255, 255), (288, 49, 47, 47))
+    pygame.draw.rect(okno, (255, 0, 0), (336, 49, 47, 47))  # 2
+    pygame.draw.rect(okno, (255, 0, 0), (384, 49, 47, 47))
+    pygame.draw.rect(okno, (255, 255, 255), (288, 97, 47, 47))
+    pygame.draw.rect(okno, (255, 0, 0), (336, 97, 47, 47))  # 3
+    pygame.draw.rect(okno, (255, 255, 255), (384, 97, 47, 47))
+    pygame.draw.rect(okno, (255, 255, 255), (288, 145, 47, 47))
+    pygame.draw.rect(okno, (255, 0, 0), (336, 145, 47, 47))  # 4
+    pygame.draw.rect(okno, (255, 255, 255), (384, 145, 47, 47))
+    pygame.draw.rect(okno, (255, 255, 255), (288, 193, 47, 47))
+    pygame.draw.rect(okno, (255, 0, 0), (336, 193, 47, 47))  # 5
+    pygame.draw.rect(okno, (255, 255, 255), (384, 193, 47, 47))
+    pygame.draw.rect(okno, (255, 255, 255), (288, 241, 47, 47))
+    pygame.draw.rect(okno, (255, 0, 0), (336, 241, 47, 47))  # 6
+    pygame.draw.rect(okno, (255, 255, 255), (384, 241, 47, 47))
 
-    pygame.draw.rect(okno, (0, 0, 0), (0, 225, 225, 150))
+    pygame.draw.rect(okno, (0, 0, 0), (0, 288, 144, 144))
 
-    pygame.draw.rect(okno, (255, 255, 255), (1, 225, 36, 49))  ##########
-    pygame.draw.rect(okno, (0, 150, 0), (38, 225, 36, 49))
-    pygame.draw.rect(okno, (255, 255, 255), (75, 225, 36, 49))
-    pygame.draw.rect(okno, (255, 255, 255), (112, 225, 36, 49))  # lewa
-    pygame.draw.rect(okno, (255, 255, 255), (149, 225, 37, 49))
-    pygame.draw.rect(okno, (255, 255, 255), (187, 225, 37, 49))  ##########  1
-    pygame.draw.rect(okno, (255, 255, 255), (376, 225, 37, 49))
-    pygame.draw.rect(okno, (255, 255, 255), (414, 225, 37, 49))
-    pygame.draw.rect(okno, (255, 255, 255), (452, 225, 36, 49))  # prawa
-    pygame.draw.rect(okno, (255, 255, 255), (489, 225, 36, 49))
-    pygame.draw.rect(okno, (255, 255, 255), (526, 225, 36, 49))
-    pygame.draw.rect(okno, (255, 255, 255), (563, 225, 36, 49))  ##########
+    pygame.draw.rect(okno, (255, 255, 255), (1, 288, 47, 47))  ##########
+    pygame.draw.rect(okno, (0, 150, 0), (49, 288, 47, 47))
+    pygame.draw.rect(okno, (255, 255, 255), (97, 288, 47, 47))
+    pygame.draw.rect(okno, (255, 255, 255), (145, 288, 47, 47))  # lewa
+    pygame.draw.rect(okno, (255, 255, 255), (193, 288, 47, 47))
+    pygame.draw.rect(okno, (255, 255, 255), (241, 288, 47, 47))  ##########  1
+    pygame.draw.rect(okno, (255, 255, 255), (431, 288, 47, 47))
+    pygame.draw.rect(okno, (255, 255, 255), (479, 288, 47, 47))
+    pygame.draw.rect(okno, (255, 255, 255), (527, 288, 47, 47))  # prawa
+    pygame.draw.rect(okno, (255, 255, 255), (575, 288, 47, 47))
+    pygame.draw.rect(okno, (255, 255, 255), (623, 288, 47, 47))
+    pygame.draw.rect(okno, (255, 255, 255), (671, 288, 47, 47))  ##########
 
-    pygame.draw.rect(okno, (255, 255, 255), (1, 275, 36, 49))  ##########
-    pygame.draw.rect(okno, (0, 150, 0), (38, 275, 36, 49))
-    pygame.draw.rect(okno, (0, 150, 0), (75, 275, 36, 49))
-    pygame.draw.rect(okno, (0, 150, 0), (112, 275, 36, 49))  # lewa
-    pygame.draw.rect(okno, (0, 150, 0), (149, 275, 37, 49))
-    pygame.draw.rect(okno, (0, 150, 0), (187, 275, 37, 49))  ##########  2
-    pygame.draw.rect(okno, (0, 0, 255), (376, 275, 37, 49))
-    pygame.draw.rect(okno, (0, 0, 255), (414, 275, 37, 49))
-    pygame.draw.rect(okno, (0, 0, 255), (452, 275, 36, 49))  # prawa
-    pygame.draw.rect(okno, (0, 0, 255), (489, 275, 36, 49))
-    pygame.draw.rect(okno, (0, 0, 255), (526, 275, 36, 49))
-    pygame.draw.rect(okno, (255, 255, 255), (563, 275, 36, 49))  ##########
+    pygame.draw.rect(okno, (255, 255, 255), (1, 336, 47, 47))  ##########
+    pygame.draw.rect(okno, (0, 150, 0), (49, 336, 47, 47))
+    pygame.draw.rect(okno, (0, 150, 0), (97, 336, 47, 47))
+    pygame.draw.rect(okno, (0, 150, 0), (145, 336, 47, 47))  # lewa
+    pygame.draw.rect(okno, (0, 150, 0), (193, 336, 47, 47))
+    pygame.draw.rect(okno, (0, 150, 0), (241, 336, 47, 47))  ##########  2
+    pygame.draw.rect(okno, (0, 0, 255), (431, 336, 47, 47))
+    pygame.draw.rect(okno, (0, 0, 255), (479, 336, 47, 47))
+    pygame.draw.rect(okno, (0, 0, 255), (527, 336, 47, 47))  # prawa
+    pygame.draw.rect(okno, (0, 0, 255), (575, 336, 47, 47))
+    pygame.draw.rect(okno, (0, 0, 255), (623, 336, 47, 47))
+    pygame.draw.rect(okno, (255, 255, 255), (671, 336, 47, 47))  ##########
 
-    pygame.draw.rect(okno, (255, 255, 255), (1, 325, 36, 49))  ##########
-    pygame.draw.rect(okno, (255, 255, 255), (38, 325, 36, 49))
-    pygame.draw.rect(okno, (255, 255, 255), (75, 325, 36, 49))
-    pygame.draw.rect(okno, (255, 255, 255), (112, 325, 36, 49))  # lewa
-    pygame.draw.rect(okno, (255, 255, 255), (149, 325, 37, 49))
-    pygame.draw.rect(okno, (255, 255, 255), (187, 325, 37, 49))  ##########  3
-    pygame.draw.rect(okno, (255, 255, 255), (376, 325, 37, 49))
-    pygame.draw.rect(okno, (255, 255, 255), (414, 325, 37, 49))
-    pygame.draw.rect(okno, (255, 255, 255), (452, 325, 36, 49))  # prawa
-    pygame.draw.rect(okno, (255, 255, 255), (489, 325, 36, 49))
-    pygame.draw.rect(okno, (0, 0, 255), (526, 325, 36, 49))
-    pygame.draw.rect(okno, (255, 255, 255), (563, 325, 36, 49))  ##########
+    pygame.draw.rect(okno, (255, 255, 255), (1, 384, 47, 47))  ##########
+    pygame.draw.rect(okno, (255, 255, 255), (49, 384, 47, 47))
+    pygame.draw.rect(okno, (255, 255, 255), (97, 384, 47, 47))
+    pygame.draw.rect(okno, (255, 255, 255), (145, 384, 47, 47))  # lewa
+    pygame.draw.rect(okno, (255, 255, 255), (193, 384, 47, 47))
+    pygame.draw.rect(okno, (255, 255, 255), (241, 384, 47, 47))  ##########  3
+    pygame.draw.rect(okno, (255, 255, 255), (431, 384, 47, 47))
+    pygame.draw.rect(okno, (255, 255, 255), (479, 384, 47, 47))
+    pygame.draw.rect(okno, (255, 255, 255), (527, 384, 47, 47))  # prawa
+    pygame.draw.rect(okno, (255, 255, 255), (575, 384, 47, 47))
+    pygame.draw.rect(okno, (0, 0, 255), (623, 384, 47, 49))
+    pygame.draw.rect(okno, (255, 255, 255), (671, 384, 47, 47))  ##########
 
-    pygame.draw.rect(okno, (0, 0, 0), (0, 373, 225, 224))
-    pygame.draw.rect(okno, (120, 0, 255), (1, 374, 224, 223))
-    pygame.draw.rect(okno, (0, 0, 0), (49, 425, 123, 123))
-    pygame.draw.rect(okno, (255, 255, 255), (50, 426, 121, 121))
+    pygame.draw.rect(okno, (0, 0, 0), (0, 431, 288, 288))
+    pygame.draw.rect(okno, (255, 255, 0), (1, 432, 286, 286))
+    pygame.draw.rect(okno, (0, 0, 0), (49, 480, 190, 190))
+    pygame.draw.rect(okno, (255, 255, 255), (50, 481, 188, 188))
 
-    pygame.draw.ellipse(okno, (120, 0, 255), (60, 433, 45, 45))
-    pygame.draw.ellipse(okno, (120, 0, 255), (115, 433, 45, 45))
-    pygame.draw.ellipse(okno, (120, 0, 255), (60, 483, 45, 45))
-    pygame.draw.ellipse(okno, (120, 0, 255), (115, 483, 45, 45))
+    pygame.draw.ellipse(okno, (255, 255, 0), (52, 483, 90, 90))
+    pygame.draw.ellipse(okno, (255, 255, 0), (144, 483, 90, 90))
+    pygame.draw.ellipse(okno, (255, 255, 0), (52, 575, 90, 90))
+    pygame.draw.ellipse(okno, (255, 255, 0), (144, 575, 90, 90))
 
-    pygame.draw.rect(okno, (0, 0, 0), (375, 373, 225, 224))
-    pygame.draw.rect(okno, (0, 0, 255), (376, 374, 224, 223))
-    pygame.draw.rect(okno, (0, 0, 0), (430, 431, 123, 123))
-    pygame.draw.rect(okno, (255, 255, 255), (431, 431, 121, 121))
+    pygame.draw.rect(okno, (0, 0, 0), (431, 431, 288, 288))
+    pygame.draw.rect(okno, (0, 0, 255), (432, 432, 286, 286))
+    pygame.draw.rect(okno, (0, 0, 0), (480, 480, 190, 190))
+    pygame.draw.rect(okno, (255, 255, 255), (481, 481, 188, 188))
 
-    pygame.draw.ellipse(okno, (0, 0, 255), (445, 440, 45, 45))
-    pygame.draw.ellipse(okno, (0, 0, 255), (495, 440, 45, 45))
-    pygame.draw.ellipse(okno, (0, 0, 255), (445, 495, 45, 45))
-    pygame.draw.ellipse(okno, (0, 0, 255), (495, 495, 45, 45))
+    pygame.draw.ellipse(okno, (0, 0, 255), (483, 483, 90, 90))
+    pygame.draw.ellipse(okno, (0, 0, 255), (575, 483, 90, 90))
+    pygame.draw.ellipse(okno, (0, 0, 255), (483, 575, 90, 90))
+    pygame.draw.ellipse(okno, (0, 0, 255), (575, 575, 90, 90))
 
-    pygame.draw.rect(okno, (255, 255, 255), (226, 375, 49, 37))
-    pygame.draw.rect(okno, (120, 0, 255), (276, 375, 49, 37))  # 1
-    pygame.draw.rect(okno, (255, 255, 255), (326, 375, 49, 37))
-    pygame.draw.rect(okno, (255, 255, 255), (226, 413, 49, 37))
-    pygame.draw.rect(okno, (120, 0, 255), (276, 413, 49, 37))  # 2
-    pygame.draw.rect(okno, (255, 255, 255), (326, 413, 49, 37))
-    pygame.draw.rect(okno, (255, 255, 255), (226, 451, 49, 36))
-    pygame.draw.rect(okno, (120, 0, 255), (276, 451, 49, 36))  # 3
-    pygame.draw.rect(okno, (255, 255, 255), (326, 451, 49, 36))
-    pygame.draw.rect(okno, (255, 255, 255), (226, 488, 49, 36))
-    pygame.draw.rect(okno, (120, 0, 255), (276, 488, 49, 36))  # 4
-    pygame.draw.rect(okno, (255, 255, 255), (326, 488, 49, 36))
-    pygame.draw.rect(okno, (120, 0, 255), (226, 525, 49, 36))
-    pygame.draw.rect(okno, (120, 0, 255), (276, 525, 49, 36))  # 5
-    pygame.draw.rect(okno, (255, 255, 255), (326, 525, 49, 36))
-    pygame.draw.rect(okno, (255, 255, 255), (226, 562, 49, 36))
-    pygame.draw.rect(okno, (255, 255, 255), (276, 562, 49, 36))  # 6
-    pygame.draw.rect(okno, (255, 255, 255), (326, 562, 49, 36))
+    pygame.draw.rect(okno, (255, 255, 255), (288, 431, 47, 47))
+    pygame.draw.rect(okno, (255, 255, 0), (336, 431, 47, 47))  # 1
+    pygame.draw.rect(okno, (255, 255, 255), (384, 431, 47, 47))
+    pygame.draw.rect(okno, (255, 255, 255), (288, 479, 47, 47))
+    pygame.draw.rect(okno, (255, 255, 0), (336, 479, 47, 47))  # 2
+    pygame.draw.rect(okno, (255, 255, 255), (384, 479, 47, 47))
+    pygame.draw.rect(okno, (255, 255, 255), (288, 527, 47, 47))
+    pygame.draw.rect(okno, (255, 255, 0), (336, 527, 47, 47))  # 3
+    pygame.draw.rect(okno, (255, 255, 255), (384, 527, 47, 47))
+    pygame.draw.rect(okno, (255, 255, 255), (288, 575, 47, 47))
+    pygame.draw.rect(okno, (255, 255, 0), (336, 575, 47, 47))  # 4
+    pygame.draw.rect(okno, (255, 255, 255), (384, 575, 47, 47))
+    pygame.draw.rect(okno, (255, 255, 0), (288, 623, 47, 47))
+    pygame.draw.rect(okno, (255, 255, 0), (336, 623, 47, 47))  # 5
+    pygame.draw.rect(okno, (255, 255, 255), (384, 623, 47, 47))
+    pygame.draw.rect(okno, (255, 255, 255), (288, 671, 47, 47))
+    pygame.draw.rect(okno, (255, 255, 255), (336, 671, 47, 47))  # 6
+    pygame.draw.rect(okno, (255, 255, 255), (384, 671, 47, 47))
+
+    pygame.draw.rect(okno, (0, 0, 0), (288, 288, 144, 144))
+
+    pygame.draw.line(okno, (255, 255, 255), (288, 288), (430, 430))
+    pygame.draw.line(okno, (255, 255, 255), (288, 430), (431, 288))
+
+    pygame.draw.polygon(okno, (255, 255, 0), ((286, 430), (429, 430), (358, 358)))
+    pygame.draw.polygon(okno, (0, 150, 0), ((287, 430), (286, 288), (358, 358)))
+    pygame.draw.polygon(okno, (255, 0, 0), ((287, 288), (430, 288), (358, 358)))
+    pygame.draw.polygon(okno, (0, 0, 255), ((429, 288), (429, 430), (358, 358)))
 
 
 
     # print("Plansza narysowana")
-
+    """
     for x in range(15 + 1):
         pygame.draw.line(okno, (89, 89, 89),(48*x, 0),(48*x,720), 5)
         pygame.draw.line(okno,  (89, 89, 89),(0, 48*x),(720,48*x), 5)
-
+    """
 
 
 
@@ -176,6 +186,8 @@ def losowanie():
     print("Kostka: ", oczka)
     return oczka
 
+#funkcja do sprawdzania klikniętego przycisku (funkcja działa dopuki nie "kliknie" się 1, 2, 3, 4, ESC lub przycisku zamknięcia
+#funkcja "zamraża rysowanie klatki zdzięki czemu "oszczędzamy" zasoby
 def key_check():
     while True:
         event = pygame.event.wait()
@@ -210,7 +222,7 @@ event = pygame.event.clear()
 
 counter = 0
 
-
+#początkowe rozrysowanie
 board_draw()
 for i in range(4):
     player_1.draw(i)
@@ -219,51 +231,78 @@ for i in range(4):
     player_4.draw(i)
 
 pygame.display.update()
-1
 
+# pętla gry, nie urzywamy systemu tick i delta time bo klatka gry jest zamrażana więc jest wydajniej i łatwiej
+#jest panować nad tym co się dzieje w kodzie
 while True:
 
-
-    #pętla gry nie urzywamy systemu tick i delta time bo klatka gry jest zamrażana
+#licznik planszy (pełni funkcje w debugowaniu)
     counter += board_draw()
-
-
-
     print("Plansza nr. ", counter, " narysowana")
 
 
-    oczka = player_1.losowanie()
+    for i in range(1,5):
 
-    oczka = player_2.losowanie()
+        print("Tura gracza nr: ", i)
 
-    oczka = player_3.losowanie()
+#w pythonie nie ma switcha więc będzie tu taki twór:
+        if i ==1:
+            oczka = player_1.losowanie()
+            print("Kostka wylosowała: ", oczka )#można wrzucić wyświetlenie tego tekstu do medoty ale na razie nie
+            print("Podaj nr. pionka, którym chcesz się ruszyć.")
 
-    oczka = player_4.losowanie()
+            pionek = key_check()
 
-    #player_1.prostyRuch()
+            player_1.losowyRuchTest(i, pionek, 6)
 
-    player_1.losowyRuchTest(1,1,1)
-    print(player_1.pozycja)
+            #print(player_1.pozycja)#metoda debugowa
+
+        elif i == 2:
+            oczka = player_2.losowanie()
+            print("Kostka wylosowała: ", oczka)
+            print("Podaj nr. pionka, którym chcesz się ruszyć.")
+
+            pionek = key_check()
+
+            player_2.losowyRuchTest(i, pionek, 1)
+
+            #print(player_2.pozycja)#metoda debugowa
+
+        elif i == 3:
+            oczka = player_3.losowanie()
+            print("Kostka wylosowała: ", oczka)
+            print("Podaj nr. pionka, którym chcesz się ruszyć.")
+
+            pionek = key_check()
+
+            player_3.losowyRuchTest(i, pionek, 1)
+
+            #print(player_2.pozycja)#metoda debugowa
+
+        elif i == 4:
+            oczka = player_4.losowanie()
+            print("Kostka wylosowała: ", oczka)
+            print("Podaj nr. pionka, którym chcesz się ruszyć.")
+
+            pionek = key_check()
+
+            player_4.losowyRuchTest(i, pionek, 1)
+
+            #print(player_2.pozycja)#metoda debugowa
+
+        board_draw()
+        # narysowanie wszystkich pozycji pionków
+        for n in range(4):
+            player_1.draw(n)
+            player_2.draw(n)
+            player_3.draw(n)
+            player_4.draw(n)
+        pygame.display.update()
 
 
 
 
-
-
-
-
-
-
-
-
-
-    for i in range(4):
-        player_1.draw(i)
-        player_2.draw(i)
-        player_3.draw(i)
-        player_4.draw(i)
-
+    #update ekranu jak się wszystko zrobi co ma się zrobić
     pygame.display.update()
 
 
-    print(key_check())
