@@ -3,8 +3,8 @@ import pygame, sys
 import random
 
 class Gracz():
-
-    kolor_paleta = ( (20, 150, 3),(255, 227, 18), (0, 0, 255),(148, 27, 3))  # green yellow blue red
+    #palety kolorów:
+    kolor_paleta = ( (20, 250, 3),(148, 27, 3), (0, 100, 255),(255, 227, 18))  # 1_green 2_red  3_blue 4_yellow
 
     kolor = (0,0,255)
 
@@ -17,7 +17,7 @@ class Gracz():
     #pozycja pionka (absolutna) zależna od mapy_pozycji
     pozycja=[[0,0],[0,0],[0,0],[0,0]]
 
-    # pozycje pionków (relatywne)
+    # pozycje pionków w bazie (relatywne)
     pozycjaPionkiBaza = [[0, 0], [48 * 2, 0], [0, 48 * 2], [48 * 2, 48 * 2]]
 
 
@@ -29,6 +29,7 @@ class Gracz():
                     [312,648],[312,600],[312,552],[312,504],[312,456],[264,408],[216,408],[168,408],[120,408],[72,408],
                     [24,408],[24,360],[24,312]]
 
+    #konstruktor który w zależności od numeru (gracza) przypożądkuje( wiem że z błędem napisane) odpowiedni kolor i bazową pozycje
     def __init__(self, screen,numer):
         self.screen = screen
 
@@ -41,6 +42,7 @@ class Gracz():
 
             self.kolor= self.kolor_paleta[0]
 
+            self.suma_oczek = 0
 
         elif numer == 2:
             self.pozycja = [[528 + self.pozycjaPionkiBaza[0][0], 96 + self.pozycjaPionkiBaza[0][1]],
@@ -50,6 +52,8 @@ class Gracz():
 
             self.kolor = self.kolor_paleta[1]
 
+            self.suma_oczek = 13
+
         elif numer == 3:
             self.pozycja = [[528 + self.pozycjaPionkiBaza[0][0], 528 + self.pozycjaPionkiBaza[0][1]],
                             [528 + self.pozycjaPionkiBaza[1][0], 528 + self.pozycjaPionkiBaza[1][1]],
@@ -58,6 +62,8 @@ class Gracz():
 
             self.kolor = self.kolor_paleta[2]
 
+            self.suma_oczek = 26
+
         elif numer == 4:
             self.pozycja = [[96 + self.pozycjaPionkiBaza[0][0], 528 + self.pozycjaPionkiBaza[0][1]],
                             [96 + self.pozycjaPionkiBaza[1][0], 528 + self.pozycjaPionkiBaza[1][1]],
@@ -65,6 +71,8 @@ class Gracz():
                             [96 + self.pozycjaPionkiBaza[3][0], 528 + self.pozycjaPionkiBaza[3][1]]]
 
             self.kolor = self.kolor_paleta[3]
+
+            self.suma_oczek = 39
 
         else:
             pass
@@ -78,6 +86,11 @@ class Gracz():
         pygame.draw.circle(self.screen, self.kolor, (self.pozycja[i][0],self.pozycja[i][1]), 15 )
 
     def sprRuch(self, a, b ,c ,d,oczka,pionek):
+
+        #do sprawdzenia ruchu wykorzystamy pozycje pionków, a nie sume oczek ponieważ pierwsze jest absolutne a drugie relatywne,
+        #dodatkowa zmienna np. nr_pozycji_na_planszy wprowadziłaby dodatkową potrzebę konwersji co jest zbędne
+
+        #EDIT: jednak na razie pozycje porównawczą opieram na sume oczek i jednak będzie ona absolutna
         for x in range(4):
             if (a.pozycja[pionek-1]+oczka)!=b.pozycja[x]:
                 print("nowa pozycja")
@@ -101,17 +114,56 @@ class Gracz():
     def prostyRuch(self):
         self.pozycja = [[self.pozycja[0][0]+1,self.pozycja[0][1]+1],[self.pozycja[1][0]+1,self.pozycja[1][1]+1],[self.pozycja[2][0]+1,self.pozycja[2][1]+1],[self.pozycja[3][0]+1,self.pozycja[3][1]+1]]
 
+#tymczasowa funkcja na ruch
     def losowyRuchTest(self,numer,pionek,oczka):
         #pass
+
+        """
+        if numer == 1:
+
+            if self.suma_oczek + oczka > 52:
+                self.suma_oczek = 0
+
+            self.suma_oczek += oczka
+
+            self.pozycja[pionek-1] = (self.mapa_pozycji[self.suma_oczek-1][0], self.mapa_pozycji[self.suma_oczek-1][1])
+        elif numer ==2:
+
+            if self.suma_oczek + oczka > 52:
+                self.suma_oczek = 0
+
+            self.suma_oczek += oczka
+
+            self.pozycja[pionek-1] = (self.mapa_pozycji[self.suma_oczek-1][0], self.mapa_pozycji[self.suma_oczek-1][1])
+        elif numer ==3:
+
+            if self.suma_oczek + oczka > 52:
+                self.suma_oczek = 0
+
+            self.suma_oczek += oczka
+
+            self.pozycja[pionek-1] = (self.mapa_pozycji[self.suma_oczek-1][0], self.mapa_pozycji[self.suma_oczek-1][1])
+        elif numer ==4:
+
+            if self.suma_oczek + oczka > 52:
+                self.suma_oczek = 0
+
+            self.suma_oczek += oczka
+
+            self.pozycja[pionek-1] = (self.mapa_pozycji[self.suma_oczek-1][0], self.mapa_pozycji[self.suma_oczek-1][1])
+
+        """
+
         if self.suma_oczek + oczka > 52:
-            self.suma_oczek=0
+            oczka = oczka - (52 - self.suma_oczek)
+            self.suma_oczek = 0
 
-        self.suma_oczek+=oczka
-
+        self.suma_oczek += oczka
 
         self.pozycja[pionek-1] = (self.mapa_pozycji[self.suma_oczek-1][0], self.mapa_pozycji[self.suma_oczek-1][1])
         print("suma oczek: ",self.suma_oczek)
 
+#metoda losująca jak koska, (w przyszłości wyświetli liczbę oczek)
     def losowanie(self):
         oczka = random.randint(1, 6)
         return oczka
