@@ -1,0 +1,8 @@
+1|1|Gratulacje! Otrzymujesz dodatkowy ruch o 1 pole do przodu!
+2|2|Gratulacje! Otrzymujesz dodatkowy ruch o 2 pola do przodu!
+3|3|Gratulacje! Otrzymujesz dodatkowy ruch o 3 pola do przodu!
+4|4|Gratulacje! Otrzymujesz dodatkowy ruch o 4 pola do przodu!
+5|5|Gratulacje! Otrzymujesz dodatkowy ruch o 5 pól do przodu!
+6|6|Gratulacje! Otrzymujesz dodatkowy ruch o 6 pól do przodu!
+7|7|Gratulacje! Otrzymujesz dodatkowy pionek wystawiony z bazy!
+8|8|Gratulacje! Otrzymujesz dodatkowy rzut kostką!
