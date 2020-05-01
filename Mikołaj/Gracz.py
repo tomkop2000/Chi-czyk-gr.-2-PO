@@ -14,6 +14,8 @@ class Gracz():
 
     suma_oczek = 0
 
+    numer = 0 #numer gracza
+
     #pozycja pionka (absolutna) zależna od mapy_pozycji
     pozycja=[[0,0],[0,0],[0,0],[0,0]]
 
@@ -44,6 +46,8 @@ class Gracz():
 
             self.suma_oczek = 0
 
+            self.numer = 2 #mogłem dać na ońcu tylko numer = self.numer ale nie chciałem
+
         elif numer == 2:
             self.pozycja = [[528 + self.pozycjaPionkiBaza[0][0], 96 + self.pozycjaPionkiBaza[0][1]],
                             [528 + self.pozycjaPionkiBaza[1][0], 96 + self.pozycjaPionkiBaza[1][1]],
@@ -53,6 +57,8 @@ class Gracz():
             self.kolor = self.kolor_paleta[1]
 
             self.suma_oczek = 13
+
+            self.numer = 3
 
         elif numer == 3:
             self.pozycja = [[528 + self.pozycjaPionkiBaza[0][0], 528 + self.pozycjaPionkiBaza[0][1]],
@@ -74,10 +80,12 @@ class Gracz():
 
             self.suma_oczek = 39
 
+            self.numer = 4
+
         else:
             pass
 
-        print("Gracz nr.", numer, " uruchomiony.")
+        print("Gracz nr.", self.numer, " uruchomiony.")
 
 
 
@@ -115,11 +123,11 @@ class Gracz():
         self.pozycja = [[self.pozycja[0][0]+1,self.pozycja[0][1]+1],[self.pozycja[1][0]+1,self.pozycja[1][1]+1],[self.pozycja[2][0]+1,self.pozycja[2][1]+1],[self.pozycja[3][0]+1,self.pozycja[3][1]+1]]
 
 #tymczasowa funkcja na ruch
-    def losowyRuchTest(self,numer,pionek,oczka):
+    def losowyRuchTest(self,pionek,oczka):
         #pass
 
         """
-        if numer == 1:
+        if self.numer == 1:
 
             if self.suma_oczek + oczka > 52:
                 self.suma_oczek = 0
@@ -127,7 +135,7 @@ class Gracz():
             self.suma_oczek += oczka
 
             self.pozycja[pionek-1] = (self.mapa_pozycji[self.suma_oczek-1][0], self.mapa_pozycji[self.suma_oczek-1][1])
-        elif numer ==2:
+        elif self.numer ==2:
 
             if self.suma_oczek + oczka > 52:
                 self.suma_oczek = 0
@@ -135,7 +143,7 @@ class Gracz():
             self.suma_oczek += oczka
 
             self.pozycja[pionek-1] = (self.mapa_pozycji[self.suma_oczek-1][0], self.mapa_pozycji[self.suma_oczek-1][1])
-        elif numer ==3:
+        elif self.numer ==3:
 
             if self.suma_oczek + oczka > 52:
                 self.suma_oczek = 0
@@ -143,7 +151,7 @@ class Gracz():
             self.suma_oczek += oczka
 
             self.pozycja[pionek-1] = (self.mapa_pozycji[self.suma_oczek-1][0], self.mapa_pozycji[self.suma_oczek-1][1])
-        elif numer ==4:
+        elif self.numer ==4:
 
             if self.suma_oczek + oczka > 52:
                 self.suma_oczek = 0
@@ -199,8 +207,8 @@ class Gracz():
             print("inna akcja")
 
 
+#mechaniki z pętli główej programu dam tutaj
 class User(Gracz):
-
 
     def tick(self):
         self.wyborPionka()
@@ -210,3 +218,6 @@ class User(Gracz):
 
     def wyborPionka(self):
         pass
+
+#komentarze:
+#w przyszłej wersji nie będzie wymagane podawanie numeru gracza
