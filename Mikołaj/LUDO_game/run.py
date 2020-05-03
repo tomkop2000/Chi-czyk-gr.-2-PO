@@ -140,38 +140,71 @@ class Board(object):
 
                     print("1oczka = ", oczka)
 
-                    pionek = player_1.wyborPionka()  # to tylko metoda nie robiąca nic z wartościami obiektów
+
 
                     ###########################################################
 
                     print("1kolejka = ", kolejka)
 
                     if kolejka == 1:
-                        if player_1.pionki_stan[pionek - 1] == 1:
-                            player_1.losowyRuchTest(pionek, 1)  # tu daje pionek na start
-                        elif player_1.pionki_stan[pionek - 1] == 2:
-                            player_1.losowyRuchTest(pionek, oczka)  # tu się ruszam pionkiem
+
+                        while True:
+                            pionek = player_1.wyborPionka()  # to tylko metoda nie robiąca nic z wartościami obiektów
+                            if player_1.pionki_stan[pionek - 1] == 1:
+                                player_1.losowyRuchTest(pionek, 1)  # tu daje pionek na start
+                                break
+                            elif player_1.pionki_stan[pionek - 1] == 2:
+                                player_1.losowyRuchTest(pionek, oczka)  # tu się ruszam pionkiem
+                                break
+
+                            elif player_1.pionki_stan[pionek - 1] == 3:
+                                if (player_1.suma_oczek[pionek - 1] + oczka) > (player_1.mapa_pozycji_domek[pionek - 1] + 6):
+                                    print("Niedobry ruch")
+
 
 
                     elif kolejka == 2:
-                        if player_2.pionki_stan[pionek - 1] == 1:
-                            player_2.losowyRuchTest(pionek, 1)  # tu daje pionek na start
-                        elif player_2.pionki_stan[pionek - 1] == 2:
-                            player_2.losowyRuchTest(pionek, oczka)  # tu się ruszam pionkiem
+
+                        while True:
+                            pionek = player_1.wyborPionka()  # to tylko metoda nie robiąca nic z wartościami obiektów
+                            if player_2.pionki_stan[pionek - 1] == 1:
+                                player_2.losowyRuchTest(pionek, 1)  # tu daje pionek na start
+                            elif player_2.pionki_stan[pionek - 1] == 2:
+                                player_2.losowyRuchTest(pionek, oczka)  # tu się ruszam pionkiem
+
+                            elif player_2.pionki_stan[pionek - 1] == 3:
+                                if (player_2.suma_oczek[pionek - 1]+ oczka) > (player_2.mapa_pozycji_domek[pionek - 1] + 6):
+                                    print("Niedobry ruch")
 
 
                     elif kolejka == 3:
-                        if player_3.pionki_stan[pionek - 1] == 1:
-                            player_3.losowyRuchTest(pionek, 1)  # tu daje pionek na start
-                        elif player_3.pionki_stan[pionek - 1] == 2:
-                            player_3.losowyRuchTest(pionek, oczka)  # tu się ruszam pionkiem
+                        while True:
+                            pionek = player_1.wyborPionka()  # to tylko metoda nie robiąca nic z wartościami obiektów
+                            if player_3.pionki_stan[pionek - 1] == 1:
+                                player_3.losowyRuchTest(pionek, 1)  # tu daje pionek na start
+                            elif player_3.pionki_stan[pionek - 1] == 2:
+                                player_3.losowyRuchTest(pionek, oczka)  # tu się ruszam pionkiem
+
+                            elif player_3.pionki_stan[pionek - 1] == 3:
+                                if (player_3.suma_oczek[pionek - 1] + oczka) > (player_3.mapa_pozycji_domek[pionek - 1] + 6):
+                                    print("Niedobry ruch")
 
 
                     elif kolejka == 4:
-                        if player_4.pionki_stan[pionek - 1] == 1:
-                            player_4.losowyRuchTest(pionek, 1)  # tu daje pionek na start
-                        elif player_4.pionki_stan[pionek - 1] == 2:
-                            player_4.losowyRuchTest(pionek, oczka)  # tu się ruszam pionkiem
+                        while True:
+                            pionek = player_1.wyborPionka()  # to tylko metoda nie robiąca nic z wartościami obiektów
+                            if player_4.pionki_stan[pionek - 1] == 1:
+                                player_4.losowyRuchTest(pionek, 1)  # tu daje pionek na start
+                            elif player_4.pionki_stan[pionek - 1] == 2:
+                                player_4.losowyRuchTest(pionek, oczka)  # tu się ruszam pionkiem
+
+                            elif player_4.pionki_stan[pionek - 1] == 3:
+                                if (player_4.suma_oczek[pionek - 1] + oczka) > (
+                                        player_4.mapa_pozycji_domek[pionek - 1] + 6):
+                                    print("Niedobry ruch")
+
+
+
 
                     licznik = 0
 
@@ -205,6 +238,12 @@ class Board(object):
                                 if player_1.pionki_stan[pionek - 1] == 2:
                                     player_1.losowyRuchTest(pionek, oczka)
                                     break
+                                elif player_1.pionki_stan[pionek - 1] == 3:
+                                    if (player_1.suma_oczek[pionek - 1] + oczka) > (player_1.mapa_pozycji_domek[pionek - 1] + 6):
+                                        print("Niedobry ruch")
+                                    else:
+                                        player_1.losowyRuchTest(pionek, oczka)
+                                        break
 
                     elif kolejka == 2:
                         if player_2.pionki_stan == [1, 1, 1, 1]:
@@ -217,6 +256,13 @@ class Board(object):
                                 if player_2.pionki_stan[pionek - 1] == 2:
                                     player_2.losowyRuchTest(pionek, oczka)
                                     break
+                                elif player_2.pionki_stan[pionek - 1] == 3:
+                                    if (player_2.suma_oczek[pionek - 1] + oczka) > (
+                                            player_2.mapa_pozycji_domek[pionek - 1] + 6):
+                                        print("Niedobry ruch")
+                                    else:
+                                        player_2.losowyRuchTest(pionek, oczka)
+                                        break
 
                     elif kolejka == 3:
                         if player_3.pionki_stan == [1, 1, 1, 1]:
@@ -229,6 +275,13 @@ class Board(object):
                                 if player_3.pionki_stan[pionek - 1] == 2:
                                     player_3.losowyRuchTest(pionek, oczka)
                                     break
+                                elif player_3.pionki_stan[pionek - 1] == 3:
+                                    if (player_3.suma_oczek[pionek - 1] + oczka) > (
+                                            player_3.mapa_pozycji_domek[pionek - 1] + 6):
+                                        print("Niedobry ruch")
+                                    else:
+                                        player_3.losowyRuchTest(pionek, oczka)
+                                        break
 
                     elif kolejka == 4:
                         if player_4.pionki_stan == [1, 1, 1, 1]:
@@ -241,6 +294,13 @@ class Board(object):
                                 if player_4.pionki_stan[pionek - 1] == 2:
                                     player_4.losowyRuchTest(pionek, oczka)
                                     break
+                                elif player_4.pionki_stan[pionek - 1] == 3:
+                                    if (player_4.suma_oczek[pionek - 1] + oczka) > (
+                                            player_4.mapa_pozycji_domek[pionek - 1] + 6):
+                                        print("Niedobry ruch")
+                                    else:
+                                        player_4.losowyRuchTest(pionek, oczka)
+                                        break
 
                     print("2licznik = ", licznik)
 

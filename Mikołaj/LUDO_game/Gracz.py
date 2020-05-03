@@ -195,9 +195,12 @@ class Gracz():
 
 
         if self.pionki_stan[pionek-1] == 2:
+
             if self.suma_oczek[pionek-1] + oczka > 52:
                 oczka = oczka - (52 - self.suma_oczek[pionek-1])
                 self.suma_oczek[pionek-1] = 0
+
+
 
             if (self.suma_oczek[pionek-1] + oczka) == self.mapa_pozycji_domek[pionek-1]:
                 pass
@@ -205,21 +208,22 @@ class Gracz():
             elif (self.suma_oczek[pionek-1] + oczka) > self.mapa_pozycji_domek[pionek-1]:
                 self.pionki_stan[pionek - 1] = 3
                 oczka = oczka -(self.mapa_pozycji_domek[pionek-1] - self.suma_oczek[pionek-1]) -1
-                self.suma_oczek = self.pionki_stan[pionek-1] + oczka
+                self.suma_oczek[pionek-1] = self.pionki_stan[pionek-1] + oczka
 
 
             elif (self.suma_oczek[pionek-1] + oczka) < self.mapa_pozycji_domek[pionek-1]:
                 self.suma_oczek[pionek - 1] += oczka
 
 
-        elif self.pionki_stan[pionek-1] == 3:
-            pass
+        if self.pionki_stan[pionek-1] == 3:
+            if self.suma_oczek[pionek - 1] == (self.mapa_pozycji_domek[pionek - 1] + 6):
+                self.pionki_stan[pionek - 1] = 4
 
+            elif self.suma_oczek[pionek - 1] > (self.mapa_pozycji_domek[pionek - 1] + 6):
+                pass
 
-
-
-
-
+            elif self.suma_oczek[pionek - 1] < (self.mapa_pozycji_domek[pionek - 1] + 6):
+                self.suma_oczek[pionek - 1] += oczka
 
 
 
@@ -244,6 +248,10 @@ class Gracz():
 
         self.pozycja[pionek-1] = (self.mapa_pozycji[self.suma_oczek[pionek-1]-1][0], self.mapa_pozycji[self.suma_oczek[pionek-1]-1][1])
         print("suma oczek: ",self.suma_oczek[pionek-1])
+
+
+
+
 
 
     def move(self,pionek,oczka):
