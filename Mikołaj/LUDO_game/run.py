@@ -275,6 +275,10 @@ class Board(object):
                     elif kolejka == 2:
                         if player_2.pionki_stan == [1, 1, 1, 1]:
                             licznik += 1
+
+                        #warunek taki że mamy za dużo oczek dla pionka o stusie 3 ale nie ma żadnego pionka coby można siębyło nim ruszzyć, ten warunek należy skopiować dla każdego
+                        elif (player_2.pionki_stan[0]!=2 and player_2.pionki_stan[1]!=2 and player_2.pionki_stan[2]!=2 and player_2.pionki_stan[3]!=2) and ( ((player_2.suma_oczek[0] + oczka) > (player_2.domek_wejscie_chodnik + 5)) and ( (player_2.suma_oczek[1] + oczka) > (player_2.domek_wejscie_chodnik + 5))and( (player_2.suma_oczek[2] + oczka) > (player_2.domek_wejscie_chodnik + 5))and( (player_2.suma_oczek[3] + oczka) > (player_2.domek_wejscie_chodnik + 5))):
+                            licznik += 1
                         elif (player_2.pionki_stan[0] == 2 or player_2.pionki_stan[1] == 2 or player_2.pionki_stan[2] == 2 or player_2.pionki_stan[3] == 2 or player_2.pionki_stan[0] == 3 or player_2.pionki_stan[1] == 3 or player_2.pionki_stan[2] == 3 or player_2.pionki_stan[3] == 3):
                             licznik = max_licznik
                             print("wybierz pionek (ale nie z bazy): ")
@@ -296,6 +300,10 @@ class Board(object):
                     elif kolejka == 3:
                         if player_3.pionki_stan == [1, 1, 1, 1]:
                             licznik += 1
+
+                        #warunek taki że mamy za dużo oczek dla pionka o stusie 3 ale nie ma żadnego pionka coby można siębyło nim ruszzyć, ten warunek należy skopiować dla każdego
+                        elif (player_3.pionki_stan[0]!=2 and player_3.pionki_stan[1]!=2 and player_3.pionki_stan[2]!=2 and player_3.pionki_stan[3]!=2) and ( ((player_3.suma_oczek[0] + oczka) > (player_3.domek_wejscie_chodnik + 5)) and ( (player_3.suma_oczek[1] + oczka) > (player_3.domek_wejscie_chodnik + 5))and( (player_3.suma_oczek[2] + oczka) > (player_3.domek_wejscie_chodnik + 5))and( (player_3.suma_oczek[3] + oczka) > (player_3.domek_wejscie_chodnik + 5))):
+                            licznik += 1
                         elif (player_3.pionki_stan[0] == 2 or player_3.pionki_stan[1] == 2 or player_3.pionki_stan[2] == 2 or player_3.pionki_stan[3] == 2 or player_3.pionki_stan[1] == 3 or player_3.pionki_stan[2] == 3 or player_3.pionki_stan[3] == 3):
                             licznik = max_licznik
                             print("wybierz pionek (ale nie z bazy): ")
@@ -315,6 +323,10 @@ class Board(object):
 
                     elif kolejka == 4:
                         if player_4.pionki_stan == [1, 1, 1, 1]:
+                            licznik += 1
+
+                        #warunek taki że mamy za dużo oczek dla pionka o stusie 3 ale nie ma żadnego pionka coby można siębyło nim ruszzyć, ten warunek należy skopiować dla każdego
+                        elif (player_4.pionki_stan[0]!=2 and player_4.pionki_stan[1]!=2 and player_4.pionki_stan[2]!=2 and player_4.pionki_stan[3]!=2) and ( ((player_4.suma_oczek[0] + oczka) > (player_4.domek_wejscie_chodnik + 5)) and ( (player_4.suma_oczek[1] + oczka) > (player_4.domek_wejscie_chodnik + 5))and( (player_4.suma_oczek[2] + oczka) > (player_4.domek_wejscie_chodnik + 5))and( (player_4.suma_oczek[3] + oczka) > (player_4.domek_wejscie_chodnik + 5))):
                             licznik += 1
                         elif (player_4.pionki_stan[0] == 2 or player_4.pionki_stan[1] == 2 or player_4.pionki_stan[2] == 2 or player_4.pionki_stan[3] == 2 or player_4.pionki_stan[0] == 3 or player_4.pionki_stan[1] == 3 or player_4.pionki_stan[2] == 3 or player_4.pionki_stan[3] == 3):
                             licznik = max_licznik
