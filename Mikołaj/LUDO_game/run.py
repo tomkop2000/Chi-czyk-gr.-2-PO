@@ -280,7 +280,7 @@ class Board(object):
                     elif kolejka == 3:
                         if player_3.pionki_stan == [1, 1, 1, 1]:
                             licznik += 1
-                        elif (player_3.pionki_stan[0] == 2 or player_3.pionki_stan[1] == 2 or player_3.pionki_stan[2] == 2 or player_3.pionki_stan[3] == 2):
+                        elif (player_3.pionki_stan[0] == 2 or player_3.pionki_stan[1] == 2 or player_3.pionki_stan[2] == 2 or player_3.pionki_stan[3] == 2 or player_3.pionki_stan[0] == 3 or player_3.pionki_stan[1] == 3 or player_3.pionki_stan[2] == 3 or player_3.pionki_stan[3] == 3):
                             licznik = max_licznik
                             print("wybierz pionek (ale nie z bazy): ")
                             while True:
