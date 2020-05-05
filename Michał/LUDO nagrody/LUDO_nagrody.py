@@ -22,7 +22,7 @@ class Nagroda:
     
     #klasa Okna, która dziedziczy z klasy Nagroda
 class Okna(Nagroda):
-    def choice_nagroda():#metoda zwracająca losową wartość z przedziału od 1 do 61
+    def choice_nagroda():#metoda zwracająca losową wartość z przedziału od 1 do 8
         choice_number=random.randint(1,8)
         choice_number=str(choice_number)
         return choice_number
@@ -49,22 +49,18 @@ class Okna(Nagroda):
         winsound.PlaySound(muzyka, winsound.SND_ASYNC|winsound.SND_ALIAS) # rozpoczęcie odtwarzania muzyki
 
         okno =Tk()
-        okno.geometry('500x500')#wyświetlenie okna o rozmiarze 500x500 pikseli
+        okno.geometry("500x350+700+300")#wyświetlenie okna o rozmiarze 500x500 pikseli
         img = PhotoImage(file= obraz)
         label_grafika=Label(okno, image = img)
         label=Label(okno, text = a)
         okno.title("Nagroda") #nadanie tytułu okna po lewej stronie pasku stanu
-        topFrame = Frame(okno)
-        topFrame.pack()
-        bottomFrame=Frame(okno)
-        bottomFrame.pack()
         
         przycisk=Button(okno,text="OK", command=okno.destroy) # przycisk zamykający okno
 
         #pakowanie przycisków i grafik
-        przycisk.pack()
-        label.pack()
-        label_grafika.pack()
+        label_grafika.pack( side ="top", fill=X, expand =True )
+        label.pack( side ="top", fill=X, expand =True )
+        przycisk.pack( expand =False )
         okno.mainloop()#pętla która uniemożliwia zamknięcie okna
         winsound.PlaySound(None, winsound.SND_PURGE)  # zakończenie odtwarzania muzyki jeśli nie zakończyło się to wcześniej
         return b
@@ -91,7 +87,7 @@ class kotek(Okna): #klasa kotek, dziedzicząda z klasy Okna
         return k
 
 nagroda_1=[] #lista obiektów Nagroda, naważniejszy element, przechowuje najwiażnejsze dane dotyczące treści nagród
-def load_nagrody(): # metoda ładująca treści nagród z pliku
+def load_nagrody(): # funkcja ładująca treści nagród z pliku
     #ładowanie bazy pytań o nazwie pytania.txt
     file_name="nagrody.txt"
     f=codecs.open(file_name,"r", encoding="utf-8")

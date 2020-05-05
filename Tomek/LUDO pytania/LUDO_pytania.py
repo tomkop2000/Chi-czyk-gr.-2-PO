@@ -41,10 +41,11 @@ class Przeszkoda:
         a = int(self.poprawna_odp)
         return a
 
+
     #klasa Okno, która dziedziczy z klasy Przeszkoda
 class Okno(Przeszkoda):
-    def choice_pytanie(): #metoda zwracająca losową wartość z przedziału od 1 do 61
-        choice_number=random.randint(1,61)
+    def choice_pytanie(): #metoda zwracająca losową wartość z przedziału od 1 do 81
+        choice_number=random.randint(1,81)
         choice_number=str(choice_number)
         return choice_number
     def pytanie(choice_number):# metoda zwracająca wartość a odpowiadającą treść pytania z wylosowanego pytania
@@ -93,15 +94,12 @@ class Okno(Przeszkoda):
         winsound.PlaySound(muzyka, winsound.SND_ASYNC|winsound.SND_ALIAS) # rozpoczęcie odtwarzania muzyki
 
         okno =Tk()
-        okno.geometry('500x500')#wyświetlenie okna o rozmiarze 500x500 pikseli
+        okno.geometry("600x500+700+300")#wyświetlenie okna o rozmiarze 500x500 pikseli
         img = PhotoImage(file= obraz)
         label_grafika=Label(okno, image = img)
         label=Label(okno, text = a)
         okno.title("Pytanie")#nadanie tytułu okna po lewej stronie pasku stanu
-        topFrame = Frame(okno)
-        topFrame.pack()
-        bottomFrame=Frame(okno)
-        bottomFrame.pack()
+
         odp = IntVar()
         przyciskA=Radiobutton(okno,text = b , fg="red",value =1, variable=odp) # wyświetlenie odpowiedzi A, której wartość jest równa 1
 
@@ -113,12 +111,12 @@ class Okno(Przeszkoda):
         przycisk=Button(okno,text="Zapisz odpowiedź", command=okno.destroy) # przycisk zamykający okno
 
         #pakowanie przycisków i grafik
-        przycisk.pack()
-        label.pack()
-        label_grafika.pack()
-        przyciskA.pack()
-        przyciskB.pack()
-        przyciskC.pack()
+        label_grafika.pack( side ="top", fill=X, expand =True)
+        label.pack(side ="top", fill=X, expand =True)
+        przyciskA.pack(side ="top", fill=X, expand =True)
+        przyciskB.pack(side ="top", fill=X, expand =True)
+        przyciskC.pack(side ="top", fill=X, expand =True)
+        przycisk.pack(expand =False)
         okno.mainloop()#pętla która uniemożliwia zamknięcie okna
         k = Okno.sprawdzanie(odp.get(),choice_number) # sprawdzenie czy wybrana odpowiedź była poprawna oraz zwrócenie wartości logicznej 1 dla poprawnej odpowiedzi i 0 dla błędnej
         winsound.PlaySound(None, winsound.SND_PURGE) # zakończenie odtwarzania muzyki jeśli nie zakończyło się to wcześniej
@@ -146,7 +144,7 @@ class niedzwiedz(Okno):
         return k
 
 przeszkoda_1=[] #lista obiektów Przeszkoda, naważniejszy element, przechowuje najwiażnejsze dane dotyczące pytań 
-def load_pytania(): # metoda ładująca pytania z pliku
+def load_pytania(): # funkcja ładująca pytania z pliku
     #ładowanie bazy pytań o nazwie pytania.txt
     file_name="pytania.txt"
     f=codecs.open(file_name,"r", encoding="utf-8")
