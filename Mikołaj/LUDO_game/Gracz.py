@@ -25,9 +25,9 @@ class Gracz():
 
     pionki_stan = [1, 1, 1, 1]
 
-    mapa_pozycji_domek = [51,12,25,38]#to są współrzędne na jakiej zaczynają się domki
+    mapa_pozycji_domek = (51,12,25,38)#to są współrzędne na jakiej zaczynają się domki
 
-    mapa_pozycji_domek_chodnik = [53,59,65,71]#to są współrzędne (suma_pionek) na jakiej już są pierwsze współrzędne domków
+    mapa_pozycji_domek_chodnik = (53,59,65,71)#to są współrzędne (suma_pionek) na jakiej już są pierwsze współrzędne domków
 
     domek_wejscie = 51
 
@@ -209,6 +209,11 @@ class Gracz():
 
 
 
+        if self.pionki_stan[pionek-1] == 3:
+            self.suma_oczek[pionek - 1] += oczka
+
+
+
 
         if self.pionki_stan[pionek-1] == 2:
 
@@ -233,12 +238,11 @@ class Gracz():
 
 
 
-
-            if (self.suma_oczek[pionek-1] + oczka) == self.domek_wejscie:
+            if self.suma_oczek[pionek-1] + int(oczka) == self.domek_wejscie:
                 pass
 
             # to musi oznaczać tylko że jesteśmy kilka pół przed wejściem do domku
-            elif ((self.suma_oczek[pionek-1] + oczka) > self.domek_wejscie) and (self.suma_oczek[pionek-1]< self.domek_wejscie) and self.kolor != self.kolor_paleta[0]:
+            elif ((self.suma_oczek[pionek-1] + oczka) > self.domek_wejscie) and (self.suma_oczek[pionek-1] < self.domek_wejscie) and self.kolor != self.kolor_paleta[0]:
 
 
                 oczka = oczka -(self.domek_wejscie - self.suma_oczek[pionek-1])
@@ -248,8 +252,7 @@ class Gracz():
                 self.pionki_stan[pionek - 1] = 3
 
 
-        if self.pionki_stan[pionek-1] == 3:
-            self.suma_oczek[pionek - 1] += oczka
+
 
 
 
