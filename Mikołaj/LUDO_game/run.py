@@ -72,7 +72,7 @@ class Board(object):
 
         licznik = 0
 
-        print("wejscie do pętli głównej gry")
+        #print("wejscie do pętli głównej gry")
         while True:
             licznik = 0
 
@@ -122,15 +122,15 @@ class Board(object):
                       player_4.pionki_stan[3] == 2):
                     max_licznik = 1
 
-            print("stan max_licznik = ", max_licznik)
+            #print("stan max_licznik = ", max_licznik)
 
             ###########################################################
-            print("wejscie do pętli gracza")
+            #print("wejscie do pętli gracza")
             while True:
 
-                print("1licznik = ", licznik)
+               #print("1licznik = ", licznik)
                 if licznik == max_licznik:
-                    print("BREAK zadziałał")
+                    #print("BREAK zadziałał")
                     break
 
                 oczka = player_1.losowanie()  # to tylko metoda nie robiąca nic z wartościami obiektów
@@ -139,13 +139,13 @@ class Board(object):
 
                 if oczka == 6:
 
-                    print("1oczka = ", oczka)
+                    #print("1oczka = ", oczka)
 
 
 
                     ###########################################################
 
-                    print("1kolejka = ", kolejka)
+                    #print("1kolejka = ", kolejka)
 
                     if kolejka == 1:
 
@@ -159,7 +159,7 @@ class Board(object):
                                 break
 
                             elif player_1.pionki_stan[pionek - 1] == 3:
-                                if (player_1.suma_oczek[pionek - 1] + oczka) > (player_1.domek_wejscie + 6):
+                                if (player_1.suma_oczek[pionek - 1] + oczka) > (player_1.domek_wejscie_chodnik + 5):
                                     print("Niedobry ruch")
 
 
@@ -176,7 +176,7 @@ class Board(object):
                                 break
 
                             elif player_2.pionki_stan[pionek - 1] == 3:
-                                if (player_2.suma_oczek[pionek - 1]+ oczka) > (player_2.domek_wejscie + 6):
+                                if (player_2.suma_oczek[pionek - 1]+ oczka) > (player_2.domek_wejscie_chodnik + 5):
                                     print("Niedobry ruch")
 
 
@@ -191,7 +191,7 @@ class Board(object):
                                 break
 
                             elif player_3.pionki_stan[pionek - 1] == 3:
-                                if (player_3.suma_oczek[pionek - 1] + oczka) > (player_3.domek_wejscie + 6):
+                                if (player_3.suma_oczek[pionek - 1] + oczka) > (player_3.domek_wejscie_chodnik + 5):
                                     print("Niedobry ruch")
 
 
@@ -206,7 +206,7 @@ class Board(object):
                                 break
 
                             elif player_4.pionki_stan[pionek - 1] == 3:
-                                if (player_4.suma_oczek[pionek - 1] + oczka) > (player_4.domek_wejscie + 6):
+                                if (player_4.suma_oczek[pionek - 1] + oczka) > (player_4.domek_wejscie_chodnik + 5):
                                     print("Niedobry ruch")
 
 
@@ -228,8 +228,8 @@ class Board(object):
 
                 elif oczka != 6:
 
-                    print("2oczka = ", oczka)
-                    print("2kolejka = ",kolejka)
+                    #print("2oczka = ", oczka)
+                    #print("2kolejka = ",kolejka)
 
 
                     if kolejka == 1:
@@ -320,7 +320,7 @@ class Board(object):
 
 
 
-                    print("2licznik = ", licznik)
+                    #print("2licznik = ", licznik)
 
                     self.board_draw()
                     for i in range(4):
@@ -366,6 +366,7 @@ class Board(object):
 
 
             print("Koniec tury gracza nr. ", kolejka)
+            print(" ")
             kolejka += 1
             #os.system("cls")
 

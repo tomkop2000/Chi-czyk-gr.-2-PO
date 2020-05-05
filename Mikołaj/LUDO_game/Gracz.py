@@ -29,6 +29,11 @@ class Gracz():
 
     mapa_pozycji_domek_chodnik = [53,59,65,71]#to są współrzędne (suma_pionek) na jakiej już są pierwsze współrzędne domków
 
+    domek_wejscie = 51
+
+    domek_wejscie_chodnik = 53
+
+
     #pozycja pionka (absolutna) zależna od mapy_pozycji
     pozycja=[[0,0],[0,0],[0,0],[0,0]]
 
@@ -67,6 +72,8 @@ class Gracz():
 
             self.domek_wejscie = self.mapa_pozycji_domek[0]
 
+            self.domek_wejscie_chodnik = self.mapa_pozycji_domek_chodnik[0]
+
         elif numer == 2:
             self.pozycja = [[528 + self.pozycjaPionkiBaza[0][0], 96 + self.pozycjaPionkiBaza[0][1]],
                             [528 + self.pozycjaPionkiBaza[1][0], 96 + self.pozycjaPionkiBaza[1][1]],
@@ -81,6 +88,8 @@ class Gracz():
 
             self.domek_wejscie = self.mapa_pozycji_domek[1]
 
+            self.domek_wejscie_chodnik = self.mapa_pozycji_domek_chodnik[1]
+
         elif numer == 3:
             self.pozycja = [[528 + self.pozycjaPionkiBaza[0][0], 528 + self.pozycjaPionkiBaza[0][1]],
                             [528 + self.pozycjaPionkiBaza[1][0], 528 + self.pozycjaPionkiBaza[1][1]],
@@ -94,6 +103,8 @@ class Gracz():
             self.numer = 3
 
             self.domek_wejscie = self.mapa_pozycji_domek[2]
+
+            self.domek_wejscie_chodnik = self.mapa_pozycji_domek_chodnik[2]
 
         elif numer == 4:
             self.pozycja = [[96 + self.pozycjaPionkiBaza[0][0], 528 + self.pozycjaPionkiBaza[0][1]],
@@ -209,7 +220,7 @@ class Gracz():
                 self.suma_oczek[pionek - 1] += oczka
 
             elif(self.suma_oczek[pionek-1] + oczka > 51) and self.kolor == self.kolor_paleta[0]: #to działa tylko dla zielonych (gracza nr.1))
-                oczka = oczka - (51 - self.suma_oczek)
+                oczka = oczka - (51 - self.suma_oczek[pionek-1])
                 self.suma_oczek = 51 + oczka
                 self.pionki_stan[pionek - 1] = 3
 
@@ -230,8 +241,8 @@ class Gracz():
             elif ((self.suma_oczek[pionek-1] + oczka) > self.domek_wejscie) and (self.suma_oczek[pionek-1]< self.domek_wejscie) and self.kolor != self.kolor_paleta[0]:
 
 
-                oczka = oczka -(self.domek_wejscie - self.suma_oczek[pionek-1]) -1
-                self.suma_oczek[pionek-1] = self.domek_wejscie_chodnik + oczka - 1
+                oczka = oczka -(self.domek_wejscie - self.suma_oczek[pionek-1])
+                self.suma_oczek[pionek-1] = self.domek_wejscie_chodnik  - 1  # + oczka ,powinno być ale ...
 
 
                 self.pionki_stan[pionek - 1] = 3
