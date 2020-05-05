@@ -76,6 +76,7 @@ class Board(object):
         while True:
             licznik = 0
 
+
             if kolejka == 5:
                 kolejka = 1
 
@@ -158,7 +159,7 @@ class Board(object):
                                 break
 
                             elif player_1.pionki_stan[pionek - 1] == 3:
-                                if (player_1.suma_oczek[pionek - 1] + oczka) > (player_1.mapa_pozycji_domek[pionek - 1] + 6):
+                                if (player_1.suma_oczek[pionek - 1] + oczka) > (player_1.domek_wejscie + 6):
                                     print("Niedobry ruch")
 
 
@@ -169,11 +170,13 @@ class Board(object):
                             pionek = player_1.wyborPionka()  # to tylko metoda nie robiąca nic z wartościami obiektów
                             if player_2.pionki_stan[pionek - 1] == 1:
                                 player_2.losowyRuchTest(pionek, 1)  # tu daje pionek na start
+                                break
                             elif player_2.pionki_stan[pionek - 1] == 2:
                                 player_2.losowyRuchTest(pionek, oczka)  # tu się ruszam pionkiem
+                                break
 
                             elif player_2.pionki_stan[pionek - 1] == 3:
-                                if (player_2.suma_oczek[pionek - 1]+ oczka) > (player_2.mapa_pozycji_domek[pionek - 1] + 6):
+                                if (player_2.suma_oczek[pionek - 1]+ oczka) > (player_2.domek_wejscie + 6):
                                     print("Niedobry ruch")
 
 
@@ -182,11 +185,13 @@ class Board(object):
                             pionek = player_1.wyborPionka()  # to tylko metoda nie robiąca nic z wartościami obiektów
                             if player_3.pionki_stan[pionek - 1] == 1:
                                 player_3.losowyRuchTest(pionek, 1)  # tu daje pionek na start
+                                break
                             elif player_3.pionki_stan[pionek - 1] == 2:
                                 player_3.losowyRuchTest(pionek, oczka)  # tu się ruszam pionkiem
+                                break
 
                             elif player_3.pionki_stan[pionek - 1] == 3:
-                                if (player_3.suma_oczek[pionek - 1] + oczka) > (player_3.mapa_pozycji_domek[pionek - 1] + 6):
+                                if (player_3.suma_oczek[pionek - 1] + oczka) > (player_3.domek_wejscie + 6):
                                     print("Niedobry ruch")
 
 
@@ -195,12 +200,13 @@ class Board(object):
                             pionek = player_1.wyborPionka()  # to tylko metoda nie robiąca nic z wartościami obiektów
                             if player_4.pionki_stan[pionek - 1] == 1:
                                 player_4.losowyRuchTest(pionek, 1)  # tu daje pionek na start
+                                break
                             elif player_4.pionki_stan[pionek - 1] == 2:
                                 player_4.losowyRuchTest(pionek, oczka)  # tu się ruszam pionkiem
+                                break
 
                             elif player_4.pionki_stan[pionek - 1] == 3:
-                                if (player_4.suma_oczek[pionek - 1] + oczka) > (
-                                        player_4.mapa_pozycji_domek[pionek - 1] + 6):
+                                if (player_4.suma_oczek[pionek - 1] + oczka) > (player_4.domek_wejscie + 6):
                                     print("Niedobry ruch")
 
 
@@ -239,11 +245,16 @@ class Board(object):
                                     player_1.losowyRuchTest(pionek, oczka)
                                     break
                                 elif player_1.pionki_stan[pionek - 1] == 3:
-                                    if (player_1.suma_oczek[pionek - 1] + oczka) > (player_1.mapa_pozycji_domek[pionek - 1] + 6):
+                                    if (player_1.suma_oczek[pionek - 1] + oczka) > (player_1.domek_wejscie_chodnik + 5):
                                         print("Niedobry ruch")
                                     else:
                                         player_1.losowyRuchTest(pionek, oczka)
                                         break
+
+
+                                else:
+                                    print("Niedobry ruch")
+
 
                     elif kolejka == 2:
                         if player_2.pionki_stan == [1, 1, 1, 1]:
@@ -257,12 +268,14 @@ class Board(object):
                                     player_2.losowyRuchTest(pionek, oczka)
                                     break
                                 elif player_2.pionki_stan[pionek - 1] == 3:
-                                    if (player_2.suma_oczek[pionek - 1] + oczka) > (
-                                            player_2.mapa_pozycji_domek[pionek - 1] + 6):
+                                    if (player_2.suma_oczek[pionek - 1] + oczka) > (player_2.domek_wejscie_chodnik + 5):
                                         print("Niedobry ruch")
                                     else:
                                         player_2.losowyRuchTest(pionek, oczka)
                                         break
+                                else:
+                                    print("Niedobry ruch")
+
 
                     elif kolejka == 3:
                         if player_3.pionki_stan == [1, 1, 1, 1]:
@@ -276,12 +289,13 @@ class Board(object):
                                     player_3.losowyRuchTest(pionek, oczka)
                                     break
                                 elif player_3.pionki_stan[pionek - 1] == 3:
-                                    if (player_3.suma_oczek[pionek - 1] + oczka) > (
-                                            player_3.mapa_pozycji_domek[pionek - 1] + 6):
+                                    if (player_3.suma_oczek[pionek - 1] + oczka) > ( player_3.domek_wejscie_chodnik + 5):
                                         print("Niedobry ruch")
                                     else:
                                         player_3.losowyRuchTest(pionek, oczka)
                                         break
+                                else:
+                                    print("Niedobry ruch")
 
                     elif kolejka == 4:
                         if player_4.pionki_stan == [1, 1, 1, 1]:
@@ -295,12 +309,16 @@ class Board(object):
                                     player_4.losowyRuchTest(pionek, oczka)
                                     break
                                 elif player_4.pionki_stan[pionek - 1] == 3:
-                                    if (player_4.suma_oczek[pionek - 1] + oczka) > (
-                                            player_4.mapa_pozycji_domek[pionek - 1] + 6):
+                                    if (player_4.suma_oczek[pionek - 1] + oczka) > ( player_4.domek_wejscie_chodnik + 5):
                                         print("Niedobry ruch")
                                     else:
                                         player_4.losowyRuchTest(pionek, oczka)
                                         break
+
+                                else:
+                                    print("Niedobry ruch")
+
+
 
                     print("2licznik = ", licznik)
 
@@ -328,6 +346,24 @@ class Board(object):
                 player_3.draw(i)
                 player_4.draw(i)
             pygame.display.update()
+
+
+            if kolejka == 1:
+                print("pionki stan = ", player_1.pionki_stan)
+                print("pionki pozycje = ", player_1.pozycja)
+            elif kolejka == 2:
+                print("pionki stan = ", player_2.pionki_stan)
+                print("pionki pozycje = ", player_2.pozycja)
+            elif kolejka == 3:
+                print("pionki stan = ", player_3.pionki_stan)
+                print("pionki pozycje = ", player_3.pozycja)
+            elif kolejka == 4:
+                print("pionki stan = ", player_4.pionki_stan)
+                print("pionki pozycje = ", player_4.pozycja)
+
+
+
+
 
             print("Koniec tury gracza nr. ", kolejka)
             kolejka += 1

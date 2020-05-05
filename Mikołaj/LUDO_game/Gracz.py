@@ -27,6 +27,8 @@ class Gracz():
 
     mapa_pozycji_domek = [51,12,25,38]#to są współrzędne na jakiej zaczynają się domki
 
+    mapa_pozycji_domek_chodnik = [53,59,65,71]#to są współrzędne (suma_pionek) na jakiej już są pierwsze współrzędne domków
+
     #pozycja pionka (absolutna) zależna od mapy_pozycji
     pozycja=[[0,0],[0,0],[0,0],[0,0]]
 
@@ -106,6 +108,8 @@ class Gracz():
             self.numer = 4
 
             self.domek_wejscie = self.mapa_pozycji_domek[3]
+
+            self.domek_wejscie_chodnik = self.mapa_pozycji_domek_chodnik[3]
 
         else:
             pass
@@ -194,55 +198,53 @@ class Gracz():
 
 
 
+
         if self.pionki_stan[pionek-1] == 2:
 
-            if self.suma_oczek[pionek-1] + oczka > 52:
+
+            if (self.suma_oczek[pionek-1] + oczka > 52) and self.kolor != self.kolor_paleta[0]: #to działa dla wszystkich oprócz zielonych (gracza nr.1)
                 oczka = oczka - (52 - self.suma_oczek[pionek-1])
                 self.suma_oczek[pionek-1] = 0
 
+                self.suma_oczek[pionek - 1] += oczka
+
+            elif(self.suma_oczek[pionek-1] + oczka > 51) and self.kolor == self.kolor_paleta[0]: #to działa tylko dla zielonych (gracza nr.1))
+                oczka = oczka - (51 - self.suma_oczek)
+                self.suma_oczek = 51 + oczka
+                self.pionki_stan[pionek - 1] = 3
 
 
-            if (self.suma_oczek[pionek-1] + oczka) == self.mapa_pozycji_domek[pionek-1]:
+            else:
+                self.suma_oczek[pionek - 1] += oczka
+
+
+
+
+
+
+
+            if (self.suma_oczek[pionek-1] + oczka) == self.domek_wejscie:
                 pass
 
-            elif (self.suma_oczek[pionek-1] + oczka) > self.mapa_pozycji_domek[pionek-1]:
+            # to musi oznaczać tylko że jesteśmy kilka pół przed wejściem do domku
+            elif ((self.suma_oczek[pionek-1] + oczka) > self.domek_wejscie) and (self.suma_oczek[pionek-1]< self.domek_wejscie) and self.kolor != self.kolor_paleta[0]:
+
+
+                oczka = oczka -(self.domek_wejscie - self.suma_oczek[pionek-1]) -1
+                self.suma_oczek[pionek-1] = self.domek_wejscie_chodnik + oczka - 1
+
+
                 self.pionki_stan[pionek - 1] = 3
-                oczka = oczka -(self.mapa_pozycji_domek[pionek-1] - self.suma_oczek[pionek-1]) -1
-                self.suma_oczek[pionek-1] = self.pionki_stan[pionek-1] + oczka
-
-
-            elif (self.suma_oczek[pionek-1] + oczka) < self.mapa_pozycji_domek[pionek-1]:
-                self.suma_oczek[pionek - 1] += oczka
 
 
         if self.pionki_stan[pionek-1] == 3:
-            if self.suma_oczek[pionek - 1] == (self.mapa_pozycji_domek[pionek - 1] + 6):
-                self.pionki_stan[pionek - 1] = 4
-
-            elif self.suma_oczek[pionek - 1] > (self.mapa_pozycji_domek[pionek - 1] + 6):
-                pass
-
-            elif self.suma_oczek[pionek - 1] < (self.mapa_pozycji_domek[pionek - 1] + 6):
-                self.suma_oczek[pionek - 1] += oczka
+            self.suma_oczek[pionek - 1] += oczka
 
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+            #elif self.suma_oczek[pionek - 1] < (self.domek_wejscie + 6):
+                #self.suma_oczek[pionek - 1] += oczka
 
 
 
@@ -250,6 +252,9 @@ class Gracz():
         print("suma oczek: ",self.suma_oczek[pionek-1])
 
 
+        if self.pionki_stan[pionek-1] == 3:
+            if self.suma_oczek[pionek - 1] == (self.domek_wejscie_chodnik + 5):
+                self.pionki_stan[pionek - 1] = 4
 
 
 
