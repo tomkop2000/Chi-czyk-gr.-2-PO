@@ -88,6 +88,7 @@ class Board(object):
                 print("pionki stan = ", player_1.pionki_stan)
                 print("pionki syma_oczek = ", player_1.suma_oczek)
                 print("pionki wejscie_chodnik = ", player_1.domek_wejscie_chodnik)
+                print("pionki wejscie_domek = ", player_1.domek_wejscie)
                 if player_1.pionki_stan == [1, 1, 1, 1]:
                     max_licznik = 3
 
@@ -100,6 +101,7 @@ class Board(object):
                 print("pionki stan = ", player_2.pionki_stan)
                 print("pionki syma_oczek = ", player_2.suma_oczek)
                 print("pionki wejscie_chodnik = ", player_2.domek_wejscie_chodnik)
+                print("pionki wejscie_domek = ", player_2.domek_wejscie)
                 if player_2.pionki_stan == [1, 1, 1, 1]:
                     max_licznik = 3
 
@@ -112,6 +114,7 @@ class Board(object):
                 print("pionki stan = ", player_3.pionki_stan)
                 print("pionki syma_oczek = ", player_3.suma_oczek)
                 print("pionki wejscie_chodnik = ", player_3.domek_wejscie_chodnik)
+                print("pionki wejscie_domek = ", player_3.domek_wejscie)
                 if player_3.pionki_stan == [1, 1, 1, 1]:
                     max_licznik = 3
 
@@ -123,6 +126,7 @@ class Board(object):
                 print("pionki stan = ", player_4.pionki_stan)
                 print("pionki syma_oczek = ", player_4.suma_oczek)
                 print("pionki wejscie_chodnik = ", player_4.domek_wejscie_chodnik)
+                print("pionki wejscie_domek = ", player_4.domek_wejscie)
                 if player_4.pionki_stan == [1, 1, 1, 1]:
                     max_licznik = 3
 

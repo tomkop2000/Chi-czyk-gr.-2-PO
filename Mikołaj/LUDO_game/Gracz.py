@@ -209,8 +209,7 @@ class Gracz():
 
 
 
-        if self.pionki_stan[pionek-1] == 3:
-            self.suma_oczek[pionek - 1] += oczka
+
 
 
 
@@ -230,31 +229,29 @@ class Gracz():
                 self.pionki_stan[pionek - 1] = 3
 
 
-            else:
-                self.suma_oczek[pionek - 1] += oczka
 
-
-
-
-
-
-            if self.suma_oczek[pionek-1] + int(oczka) == self.domek_wejscie:
+            elif self.suma_oczek[pionek-1] + int(oczka) == self.domek_wejscie:
                 pass
 
-            # to musi oznaczać tylko że jesteśmy kilka pół przed wejściem do domku
+            # to musi oznaczać tylko że jesteśmy kilka pól przed wejściem do domku
             elif ((self.suma_oczek[pionek-1] + oczka) > self.domek_wejscie) and (self.suma_oczek[pionek-1] < self.domek_wejscie) and self.kolor != self.kolor_paleta[0]:
 
 
                 oczka = oczka -(self.domek_wejscie - self.suma_oczek[pionek-1])
-                self.suma_oczek[pionek-1] = self.domek_wejscie_chodnik  - 1  # + oczka ,powinno być ale ...
+                self.suma_oczek[pionek-1] = self.domek_wejscie_chodnik  - 1  + oczka# + oczka ,powinno być ale ...
+
 
 
                 self.pionki_stan[pionek - 1] = 3
 
 
 
+            else:
+                self.suma_oczek[pionek - 1] += oczka
 
 
+        elif self.pionki_stan[pionek - 1] == 3:
+            self.suma_oczek[pionek - 1] += oczka
 
 
             #elif self.suma_oczek[pionek - 1] < (self.domek_wejscie + 6):
