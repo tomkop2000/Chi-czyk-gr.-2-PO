@@ -4,6 +4,6 @@ Aby uruchomić skopiuj cały folder LUDO_game i uruchom run.py
 - już jest mapa współrzędnych 
 
 To do:
--interfejs w oknsoli bez informacji debugowych
+- interfejs w oknsoli bez informacji debugowych
 - dodanie przszkód i nagród
--testy logiki gry (powinno być już ok)
+- testy logiki gry (powinno być już ok)
