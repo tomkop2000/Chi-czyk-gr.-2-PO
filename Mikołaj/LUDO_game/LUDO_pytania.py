@@ -41,40 +41,54 @@ class Przeszkoda:
         a = int(self.poprawna_odp)
         return a
 
+    def load_pytania(): # funkcja ładująca pytania z pliku
+    #ładowanie bazy pytań o nazwie pytania.txt
+        file_name="pytania.txt"
+        f=codecs.open(file_name,"r", encoding="utf-8")
+        lines=f.readlines()
+        przeszkoda_1=[]
+        for line in lines:
+            if line!="\n":
+                przeszkoda_1.append(Przeszkoda(line[0:-1]))
+        f.close()
+        return przeszkoda_1
+
 
     #klasa Okno, która dziedziczy z klasy Przeszkoda
 class Okno(Przeszkoda):
+    przeszkoda_1=[] #lista obiektów Przeszkoda, naważniejszy element, przechowuje najwiażnejsze dane dotyczące pytań
+    przeszkoda_1=Przeszkoda.load_pytania()
     def choice_pytanie(): #metoda zwracająca losową wartość z przedziału od 1 do 81
         choice_number=random.randint(1,81)
         choice_number=str(choice_number)
         return choice_number
     def pytanie(choice_number):# metoda zwracająca wartość a odpowiadającą treść pytania z wylosowanego pytania
-        for przeszkoda in przeszkoda_1:
+        for przeszkoda in Okno.przeszkoda_1:
             if(przeszkoda.nr_pytania==choice_number):
                a = przeszkoda.display_pytanie()
                return a
     def odp_A(choice_number): # metoda zwracająca wartość a odpowiadającą treści odpowiedzi A z wylosowanego pytania
-        for przeszkoda in przeszkoda_1:
+        for przeszkoda in Okno.przeszkoda_1:
             if(przeszkoda.nr_pytania==choice_number):
                a =przeszkoda. display_A()
         return a
     def odp_B(choice_number): # metoda zawierająca wartość a odpowiadającą treści odpowiedzi B z wylosowanego pytania
-        for przeszkoda in przeszkoda_1:
+        for przeszkoda in Okno.przeszkoda_1:
             if(przeszkoda.nr_pytania==choice_number):
                 a = przeszkoda.display_B()
                 return a
     def odp_C(choice_number): # metoda zwracająca wartość a odpowiadającą treści odpowiedzi C z wylosowanego pytania 
-        for przeszkoda in przeszkoda_1:
+        for przeszkoda in Okno.przeszkoda_1:
             if(przeszkoda.nr_pytania==choice_number):
                 a = przeszkoda.display_C()
                 return a
     def poprawna_odp(choice_number): # metoda zwracająca wartość a odpowiadającą wartości poprawnej odpowiedzi z przedziału od 1 do 3 
-        for przeszkoda in przeszkoda_1:
+        for przeszkoda in Okno.przeszkoda_1:
             if(przeszkoda.nr_pytania==choice_number):
                 a = przeszkoda.display_poprawna_odp()
                 return a
     def sprawdzanie(a, choice_number):#metoda sprawdzająca poprawność udzielonej odpowiedzi i zwracająca 1 w przypadku dobrej odpowiedzi oraz 0 w przypadku błędnej odpowiedzi
-         for przeszkoda in przeszkoda_1:
+         for przeszkoda in Okno.przeszkoda_1:
             if(przeszkoda.nr_pytania==choice_number):
                 b=przeszkoda.display_poprawna_odp()
                 if (a==b):
@@ -142,26 +156,7 @@ class niedzwiedz(Okno):
         muzyka="niedzwiedz.wav" #odtworzenie muzyki
         k=Okno.okno(muzyka,obraz) # wyświetlenie okna i przypisanie k wartości logicznej
         return k
-
-przeszkoda_1=[] #lista obiektów Przeszkoda, naważniejszy element, przechowuje najwiażnejsze dane dotyczące pytań 
-def load_pytania(): # funkcja ładująca pytania z pliku
-    #ładowanie bazy pytań o nazwie pytania.txt
-    file_name="pytania.txt"
-    f=codecs.open(file_name,"r", encoding="utf-8")
-    lines=f.readlines()
-    przeszkoda_1=[]
-    for line in lines:
-        if line!="\n":
-            przeszkoda_1.append(Przeszkoda(line[0:-1]))
-    f.close()
-    return przeszkoda_1
-
-
-
-
-
-przeszkoda_1=load_pytania() #ładowanie pytań do tablicy
-
+    
 """
 k=wilk.pytanie_wilka()
 print(k)
