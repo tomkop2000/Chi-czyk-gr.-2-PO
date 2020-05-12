@@ -1,9 +1,7 @@
 Aby uruchomić skopiuj cały folder LUDO_game i uruchom run.py
-- można wybrać pionek
-- jest proste losowanie oczek
-- już jest mapa współrzędnych 
 
 To do:
+- naniesienia na plnaszę przeszkód i nagród (jest do tego człowiek)
 - user ale komputerowy (konpecja w głowie)
 - interfejs w oknsoli bez informacji debugowych
 - dodanie przszkód i nagród DONE
