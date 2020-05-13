@@ -3,7 +3,10 @@ import pygame, sys
 import os
 import pygame.locals
 import random
+
 from Gracz import User
+from Gracz import UserAI
+
 from LUDO_nagrody import krolik
 from LUDO_nagrody import swMikolaj
 from LUDO_nagrody import kotek
@@ -34,13 +37,48 @@ class Board(object):
 
         pygame.display.set_caption('Chińczyk')
 
+
+#tu będzie inicjalzacja obiektów
+        print("Ile żywych graczy?")
+        ilosc_graczy = self.key_check()
+
+        if ilosc_graczy == 1 :
+            player_1 = User(self.okno, 1)
+            player_2 = UserAI(self.okno, 2)
+            player_3 = UserAI(self.okno, 3)
+            player_4 = UserAI(self.okno, 4)
+        elif ilosc_graczy == 2 :
+            player_1 = User(self.okno, 1)
+            player_2 = UserAI(self.okno, 2)
+            player_3 = User(self.okno, 3)
+            player_4 = UserAI(self.okno, 4)
+        elif ilosc_graczy == 3 :
+            player_1 = User(self.okno, 1)
+            player_2 = User(self.okno, 2)
+            player_3 = User(self.okno, 3)
+            player_4 = UserAI(self.okno, 4)
+        elif ilosc_graczy == 4 :
+            player_1 = User(self.okno, 1)
+            player_2 = User(self.okno, 2)
+            player_3 = User(self.okno, 3)
+            player_4 = User(self.okno, 4)
+
+        else:
+            player_1 = User(self.okno, 1)
+            player_2 = User(self.okno, 2)
+            player_3 = User(self.okno, 3)
+            player_4 = User(self.okno, 4)
+
+
+
+
+
+
         #numery od 1 do 4 to numer gracza
         #cieakwą opcją byłaby tablica obiektów, zaletą wyłaby wygoda w urzywaniu niektórych funcji,
         #wada to bardziej skomplikowana implementacja
-        player_1 = User(self.okno,1)
-        player_2 = User(self.okno,2)
-        player_3 = User(self.okno,3)
-        player_4 = User(self.okno,4)
+        #powyższe 3 zdania zostawiam ale nie są aktualne prawdopodobnie
+
 
 
         #tutj zrobię deklaracje obiektów:

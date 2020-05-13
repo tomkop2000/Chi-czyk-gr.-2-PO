@@ -2,7 +2,7 @@ Aby uruchomić skopiuj cały folder LUDO_game i uruchom run.py
 
 To do:
 - naniesienia na plnaszę przeszkód i nagród (jest do tego człowiek)
-- user ale komputerowy (konpecja w głowie)
+- user ale komputerowy (konpecja w głowie) DONE
 - interfejs w oknsoli bez informacji debugowych
 - dodanie przszkód i nagród DONE
 - testy logiki gry (powinno być już ok) DONE

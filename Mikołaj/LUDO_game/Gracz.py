@@ -565,7 +565,7 @@ class Gracz():
                     elif kolejka == 2:
 
                         while True:
-                            pionek = player_1.wyborPionka()  # to tylko metoda nie robiąca nic z wartościami obiektów
+                            pionek = player_2.wyborPionka()  # to tylko metoda nie robiąca nic z wartościami obiektów
                             if player_2.pionki_stan[pionek - 1] == 1:
                                 player_2.losowyRuchTest(pionek, 1)  # tu daje pionek na start
                                 break
@@ -582,7 +582,7 @@ class Gracz():
 
                     elif kolejka == 3:
                         while True:
-                            pionek = player_1.wyborPionka()  # to tylko metoda nie robiąca nic z wartościami obiektów
+                            pionek = player_3.wyborPionka()  # to tylko metoda nie robiąca nic z wartościami obiektów
                             if player_3.pionki_stan[pionek - 1] == 1:
                                 player_3.losowyRuchTest(pionek, 1)  # tu daje pionek na start
                                 break
@@ -599,7 +599,7 @@ class Gracz():
 
                     elif kolejka == 4:
                         while True:
-                            pionek = player_1.wyborPionka()  # to tylko metoda nie robiąca nic z wartościami obiektów
+                            pionek = player_4.wyborPionka()  # to tylko metoda nie robiąca nic z wartościami obiektów
                             if player_4.pionki_stan[pionek - 1] == 1:
                                 player_4.losowyRuchTest(pionek, 1)  # tu daje pionek na start
                                 break
@@ -1097,6 +1097,23 @@ class User(Gracz):
                 print("klawisz_inny")
         else:
             print("inna akcja")
+
+class UserAI(Gracz):
+
+    def draw(self,i):
+        self.circle(i)
+
+    def wyborPionka(self):
+
+        for i in range(1,4):
+            if self.pionki_stan[i] == 3:
+                return i+1
+            elif self.pionki_stan[i] == 2:
+                return i+1
+            elif self.pionki_stan[i] == 1:
+                return i+1
+            print("pionek_",i+1)
+
 
 
 
