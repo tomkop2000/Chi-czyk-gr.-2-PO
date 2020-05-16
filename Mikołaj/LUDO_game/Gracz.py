@@ -160,7 +160,7 @@ class Gracz():
         pygame.draw.circle(self.screen, self.kolor, (self.pozycja[i][0],self.pozycja[i][1]), 15 )
 
 #tymczasowa funkcja na ruch
-    def losowyRuchTest(self,pionek,oczka):
+    def losowyRuchTest(self,pionek,oczka,player_1,player_2,player_3,player_4):
         #pass
 
 
@@ -237,6 +237,17 @@ class Gracz():
         self.circle(pionek - 1)
 
 
+        self.board_draw()
+        for i in range(4):
+            player_1.draw(i)
+            player_2.draw(i)
+            player_3.draw(i)
+            player_4.draw(i)
+        pygame.display.update()
+
+
+
+
         if (self.suma_oczek[pionek-1] == 5 or self.suma_oczek[pionek-1] == 6 or self.suma_oczek[pionek-1] == 16 or self.suma_oczek[pionek-1] == 21  or self.suma_oczek[pionek-1] == 31  or self.suma_oczek[pionek-1] == 39 or self.suma_oczek[pionek-1] == 43):
             if isinstance(self,UserAI):
                 print("Bot nie będzie miał nagrody ani przeszkody")
@@ -253,12 +264,14 @@ class Gracz():
         self.circle(pionek - 1)
 
         if self.pionki_stan == [4,4,4,4]:
+
+            """
             self.board_draw()
             self.circle(0)
             self.circle(1)
             self.circle(2)
             self.circle(3)
-
+            """
 
             os.system("cls")
             print("Wygranko, wygranko wygranko, gratulacje...")
@@ -275,7 +288,8 @@ class Gracz():
 
             while True:
                 event = pygame.event.wait()
-                if event.type == pygame.QUIT or (event.type == pygame.KEYDOWN and event.key == pygame.K_ESCAPE) :
+                if (event.type == pygame.KEYDOWN and (
+                        event.key == pygame.K_ESCAPE)) or event.type == pygame.QUIT:
                     break
             if event.type == pygame.QUIT:
                 print("Wyjście")
@@ -431,22 +445,22 @@ class Gracz():
         if first == 1:
             print("Wybierz pionek z bazy: ")
             pionek = p_1.wyborPionka()
-            p_1.losowyRuchTest(pionek,1)
+            p_1.losowyRuchTest(pionek,1,p_1,p_2,p_3,p_4)
             print("Przesunięto pionek nr. ", pionek, " na pole startowe ")
         elif first == 2:
             print("Wybierz pionek z bazy: ")
             pionek = p_2.wyborPionka()
-            p_2.losowyRuchTest(pionek, 1)
+            p_2.losowyRuchTest(pionek, 1,p_1,p_2,p_3,p_4)
             print("Przesunięto pionek nr. ", pionek, " na pole startowe ")
         elif first == 3:
             print("Wybierz pionek z bazy: ")
             pionek = p_3.wyborPionka()
-            p_3.losowyRuchTest(pionek, 1)
+            p_3.losowyRuchTest(pionek, 1,p_1,p_2,p_3,p_4)
             print("Przesunięto pionek nr. ", pionek, " na pole startowe ")
         elif first == 4:
             print("Wybierz pionek z bazy: ")
             pionek = p_4.wyborPionka()
-            p_4.losowyRuchTest(pionek, 1)
+            p_4.losowyRuchTest(pionek, 1,p_1,p_2,p_3,p_4)
             print("Przesunięto pionek nr. ", pionek, " na pole startowe ")
         else:
             pass
@@ -571,11 +585,11 @@ class Gracz():
                         while True:
                             pionek = player_1.wyborPionka()  # to tylko metoda nie robiąca nic z wartościami obiektów
                             if player_1.pionki_stan[pionek - 1] == 1:
-                                player_1.losowyRuchTest(pionek, 1)  # tu daje pionek na start
+                                player_1.losowyRuchTest(pionek, 1,player_1,player_2,player_3,player_4)  # tu daje pionek na start
 
                                 break
                             elif player_1.pionki_stan[pionek - 1] == 2:
-                                player_1.losowyRuchTest(pionek, oczka)  # tu się ruszam pionkiem
+                                player_1.losowyRuchTest(pionek, oczka,player_1,player_2,player_3,player_4)  # tu się ruszam pionkiem
                                 break
 
                             elif player_1.pionki_stan[pionek - 1] == 3:
@@ -583,7 +597,7 @@ class Gracz():
                                 if (player_1.suma_oczek[pionek - 1] + oczka) > (player_1.domek_wejscie_chodnik + 5):
                                     print("Niedobry ruch")
                                 """
-                                player_1.losowyRuchTest(pionek, oczka)  # tu się ruszam pionkiem
+                                player_1.losowyRuchTest(pionek, oczka,player_1,player_2,player_3,player_4)  # tu się ruszam pionkiem
                                 break
 
 
@@ -593,14 +607,14 @@ class Gracz():
                         while True:
                             pionek = player_2.wyborPionka()  # to tylko metoda nie robiąca nic z wartościami obiektów
                             if player_2.pionki_stan[pionek - 1] == 1:
-                                player_2.losowyRuchTest(pionek, 1)  # tu daje pionek na start
+                                player_2.losowyRuchTest(pionek, 1,player_1,player_2,player_3,player_4)  # tu daje pionek na start
                                 break
                             elif player_2.pionki_stan[pionek - 1] == 2:
-                                player_2.losowyRuchTest(pionek, oczka)  # tu się ruszam pionkiem
+                                player_2.losowyRuchTest(pionek, oczka,player_1,player_2,player_3,player_4)  # tu się ruszam pionkiem
                                 break
 
                             elif player_2.pionki_stan[pionek - 1] == 3:
-                                player_2.losowyRuchTest(pionek, oczka)  # tu się ruszam pionkiem
+                                player_2.losowyRuchTest(pionek, oczka,player_1,player_2,player_3,player_4)  # tu się ruszam pionkiem
                                 break
                                 """
                                 if (player_2.suma_oczek[pionek - 1] + oczka) > (player_2.domek_wejscie_chodnik + 5):
@@ -612,14 +626,14 @@ class Gracz():
                         while True:
                             pionek = player_3.wyborPionka()  # to tylko metoda nie robiąca nic z wartościami obiektów
                             if player_3.pionki_stan[pionek - 1] == 1:
-                                player_3.losowyRuchTest(pionek, 1)  # tu daje pionek na start
+                                player_3.losowyRuchTest(pionek, 1,player_1,player_2,player_3,player_4)  # tu daje pionek na start
                                 break
                             elif player_3.pionki_stan[pionek - 1] == 2:
-                                player_3.losowyRuchTest(pionek, oczka)  # tu się ruszam pionkiem
+                                player_3.losowyRuchTest(pionek, oczka,player_1,player_2,player_3,player_4)  # tu się ruszam pionkiem
                                 break
 
                             elif player_3.pionki_stan[pionek - 1] == 3:
-                                player_3.losowyRuchTest(pionek, oczka)  # tu się ruszam pionkiem
+                                player_3.losowyRuchTest(pionek, oczka,player_1,player_2,player_3,player_4)  # tu się ruszam pionkiem
                                 break
                                 """
                                 if (player_3.suma_oczek[pionek - 1] + oczka) > (player_3.domek_wejscie_chodnik + 5):
@@ -631,14 +645,14 @@ class Gracz():
                         while True:
                             pionek = player_4.wyborPionka()  # to tylko metoda nie robiąca nic z wartościami obiektów
                             if player_4.pionki_stan[pionek - 1] == 1:
-                                player_4.losowyRuchTest(pionek, 1)  # tu daje pionek na start
+                                player_4.losowyRuchTest(pionek, 1,player_1,player_2,player_3,player_4)  # tu daje pionek na start
                                 break
                             elif player_4.pionki_stan[pionek - 1] == 2:
-                                player_4.losowyRuchTest(pionek, oczka)  # tu się ruszam pionkiem
+                                player_4.losowyRuchTest(pionek, oczka,player_1,player_2,player_3,player_4)  # tu się ruszam pionkiem
                                 break
 
                             elif player_4.pionki_stan[pionek - 1] == 3:
-                                player_4.losowyRuchTest(pionek, oczka)  # tu się ruszam pionkiem
+                                player_4.losowyRuchTest(pionek, oczka,player_1,player_2,player_3,player_4)  # tu się ruszam pionkiem
                                 break
                                 """
                                 if (player_4.suma_oczek[pionek - 1] + oczka) > (player_4.domek_wejscie_chodnik + 5):
@@ -682,7 +696,7 @@ class Gracz():
                             while True:
                                 pionek = player_1.wyborPionka()
                                 if player_1.pionki_stan[pionek - 1] == 2:
-                                    player_1.losowyRuchTest(pionek, oczka)
+                                    player_1.losowyRuchTest(pionek, oczka,player_1,player_2,player_3,player_4)
                                     break
                                 elif player_1.pionki_stan[pionek - 1] == 3:
                                     """
@@ -693,7 +707,7 @@ class Gracz():
                                         player_1.losowyRuchTest(pionek, oczka)
                                         break
                                     """
-                                    player_1.losowyRuchTest(pionek, oczka)
+                                    player_1.losowyRuchTest(pionek, oczka,player_1,player_2,player_3,player_4)
                                     break
 
                                 else:
@@ -715,7 +729,7 @@ class Gracz():
                             while True:
                                 pionek = player_2.wyborPionka()
                                 if player_2.pionki_stan[pionek - 1] == 2:
-                                    player_2.losowyRuchTest(pionek, oczka)
+                                    player_2.losowyRuchTest(pionek, oczka,player_1,player_2,player_3,player_4)
                                     break
                                 elif player_2.pionki_stan[pionek - 1] == 3:
                                     """
@@ -725,7 +739,7 @@ class Gracz():
                                         player_2.losowyRuchTest(pionek, oczka)
                                         break
                                     """
-                                    player_2.losowyRuchTest(pionek, oczka)
+                                    player_2.losowyRuchTest(pionek, oczka,player_1,player_2,player_3,player_4)
                                     break
                                 else:
                                     print("Niedobry ruch")
@@ -745,7 +759,7 @@ class Gracz():
                             while True:
                                 pionek = player_3.wyborPionka()
                                 if player_3.pionki_stan[pionek - 1] == 2:
-                                    player_3.losowyRuchTest(pionek, oczka)
+                                    player_3.losowyRuchTest(pionek, oczka,player_1,player_2,player_3,player_4)
                                     break
                                 elif player_3.pionki_stan[pionek - 1] == 3:
                                     """
@@ -755,7 +769,7 @@ class Gracz():
                                         player_3.losowyRuchTest(pionek, oczka)
                                         break
                                     """
-                                    player_3.losowyRuchTest(pionek, oczka)
+                                    player_3.losowyRuchTest(pionek, oczka,player_1,player_2,player_3,player_4)
                                     break
                                 else:
                                     print("Niedobry ruch")
@@ -775,7 +789,7 @@ class Gracz():
                             while True:
                                 pionek = player_4.wyborPionka()
                                 if player_4.pionki_stan[pionek - 1] == 2:
-                                    player_4.losowyRuchTest(pionek, oczka)
+                                    player_4.losowyRuchTest(pionek, oczka,player_1,player_2,player_3,player_4)
                                     break
                                 elif player_4.pionki_stan[pionek - 1] == 3:
                                     """
@@ -785,7 +799,7 @@ class Gracz():
                                         player_4.losowyRuchTest(pionek, oczka)
                                         break
                                     """
-                                    player_4.losowyRuchTest(pionek, oczka)
+                                    player_4.losowyRuchTest(pionek, oczka,player_1,player_2,player_3,player_4)
                                     break
 
                                 else:
