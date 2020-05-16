@@ -34,9 +34,9 @@ class Gracz():
 
     pionki_stan = [1, 1, 1, 1]
 
-    mapa_pozycji_domek = (51,12,25,38)#to są współrzędne na jakiej zaczynają się domki
+    mapa_pozycji_domek = [51,12,25,38]#to są współrzędne na jakiej zaczynają się domki
 
-    mapa_pozycji_domek_chodnik = (53,59,65,71)#to są współrzędne (suma_pionek) na jakiej już są pierwsze współrzędne domków
+    mapa_pozycji_domek_chodnik = [53,59,65,71]#to są współrzędne (suma_pionek) na jakiej już są pierwsze współrzędne domków
 
     domek_wejscie = 51
 
@@ -69,7 +69,7 @@ class Gracz():
         self.screen = screen
         self.okno = screen
 
-        if numer== 1:
+        if numer == 1:
 
             self.pozycja = [[96 + self.pozycjaPionkiBaza[0][0], 96 + self.pozycjaPionkiBaza[0][1]],
                             [96 + self.pozycjaPionkiBaza[1][0], 96 + self.pozycjaPionkiBaza[1][1]],
@@ -185,7 +185,7 @@ class Gracz():
 
             elif(self.suma_oczek[pionek-1] + oczka > 51) and self.kolor == self.kolor_paleta[0]: #to działa tylko dla zielonych (gracza nr.1))
                 oczka = oczka - (51 - self.suma_oczek[pionek-1])
-                self.suma_oczek = 51 + oczka
+                self.suma_oczek[pionek - 1] = 51 + oczka
                 self.pionki_stan[pionek - 1] = 3
 
 
@@ -219,7 +219,9 @@ class Gracz():
 
 
         if self.suma_oczek[pionek - 1] > (self.domek_wejscie_chodnik + 5):
-            self.suma_oczek[pionek - 1] = self.domek_wejscie_chodnik + 5
+            self.suma_oczek[pionek - 1] = (self.domek_wejscie_chodnik + 5)
+        elif self.suma_oczek[pionek - 1] == (self.domek_wejscie_chodnik + 5):
+            self.suma_oczek[pionek - 1] = (self.domek_wejscie_chodnik + 5)
 
 
 
@@ -231,25 +233,49 @@ class Gracz():
             if self.suma_oczek[pionek - 1] == (self.domek_wejscie_chodnik + 5):
                 self.pionki_stan[pionek - 1] = 4
 
+
         self.circle(pionek - 1)
 
 
         if (self.suma_oczek[pionek-1] == 5 or self.suma_oczek[pionek-1] == 6 or self.suma_oczek[pionek-1] == 16 or self.suma_oczek[pionek-1] == 21  or self.suma_oczek[pionek-1] == 31  or self.suma_oczek[pionek-1] == 39 or self.suma_oczek[pionek-1] == 43):
-            self.nagroda(pionek)
+            if isinstance(self,UserAI):
+                print("Bot nie będzie miał nagrody ani przeszkody")
+            elif isinstance(self, User):
+                self.nagroda(pionek)
 
         if (self.suma_oczek[pionek-1] == 4 or self.suma_oczek[pionek-1] == 8 or self.suma_oczek[pionek-1] == 13 or self.suma_oczek[pionek-1] == 19 or self.suma_oczek[pionek-1] == 28 or self.suma_oczek[pionek-1] == 33 or self.suma_oczek[pionek-1] == 37 or self.suma_oczek[pionek-1] == 42 or self.suma_oczek[pionek-1] == 47):
-            #tu bedzie przeszkoda
-            self.przeszkoda(pionek)
+            if isinstance(self,UserAI):
+                print("Bot nie będzie miał nagrody ani przeszkody")
+            elif isinstance(self, User):
+                self.przeszkoda(pionek)
 
 
-
+        self.circle(pionek - 1)
 
         if self.pionki_stan == [4,4,4,4]:
+            self.board_draw()
+            self.circle(0)
+            self.circle(1)
+            self.circle(2)
+            self.circle(3)
+
+
             os.system("cls")
             print("Wygranko, wygranko wygranko, gratulacje...")
+
+
+            if self.kolor== self.kolor_paleta[0]:
+                print("gracz nr 1")
+            elif self.kolor== self.kolor_paleta[1]:
+                print("gracz nr 2")
+            elif self.kolor== self.kolor_paleta[2]:
+                print("gracz nr 3")
+            elif self.kolor== self.kolor_paleta[3]:
+                print("gracz nr 4")
+
             while True:
                 event = pygame.event.wait()
-                if (event.type == pygame.KEYDOWN and (event.key == pygame.K_ESCAPE or event.type == pygame.QUIT)):
+                if event.type == pygame.QUIT or (event.type == pygame.KEYDOWN and event.key == pygame.K_ESCAPE) :
                     break
             if event.type == pygame.QUIT:
                 print("Wyjście")
@@ -574,6 +600,8 @@ class Gracz():
                                 break
 
                             elif player_2.pionki_stan[pionek - 1] == 3:
+                                player_2.losowyRuchTest(pionek, oczka)  # tu się ruszam pionkiem
+                                break
                                 """
                                 if (player_2.suma_oczek[pionek - 1] + oczka) > (player_2.domek_wejscie_chodnik + 5):
                                     print("Niedobry ruch")
@@ -591,6 +619,8 @@ class Gracz():
                                 break
 
                             elif player_3.pionki_stan[pionek - 1] == 3:
+                                player_3.losowyRuchTest(pionek, oczka)  # tu się ruszam pionkiem
+                                break
                                 """
                                 if (player_3.suma_oczek[pionek - 1] + oczka) > (player_3.domek_wejscie_chodnik + 5):
                                     print("Niedobry ruch")
@@ -608,6 +638,8 @@ class Gracz():
                                 break
 
                             elif player_4.pionki_stan[pionek - 1] == 3:
+                                player_4.losowyRuchTest(pionek, oczka)  # tu się ruszam pionkiem
+                                break
                                 """
                                 if (player_4.suma_oczek[pionek - 1] + oczka) > (player_4.domek_wejscie_chodnik + 5):
                                     print("Niedobry ruch")
@@ -761,7 +793,7 @@ class Gracz():
 
                     # print("2licznik = ", licznik)
 
-                    player_1.bicie(player_1, player_2, player_3, player_4, kolejka, pionek)
+
 
                     self.board_draw()
                     for i in range(4):
@@ -771,6 +803,8 @@ class Gracz():
                         player_4.draw(i)
                     pygame.display.update()
 
+
+                player_1.bicie(player_1, player_2, player_3, player_4, kolejka, pionek)
                 self.board_draw()
                 for i in range(4):
                     player_1.draw(i)
@@ -1104,15 +1138,19 @@ class UserAI(Gracz):
         self.circle(i)
 
     def wyborPionka(self):
-
-        for i in range(1,4):
+        for i in range(4):
             if self.pionki_stan[i] == 3:
+                print("pionek_", i + 1)
                 return i+1
             elif self.pionki_stan[i] == 2:
+                print("pionek_", i + 1)
                 return i+1
             elif self.pionki_stan[i] == 1:
+                print("pionek_", i + 1)
                 return i+1
-            print("pionek_",i+1)
+            else:
+                pass
+
 
 
 

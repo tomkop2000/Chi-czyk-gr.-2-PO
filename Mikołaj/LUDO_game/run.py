@@ -47,27 +47,38 @@ class Board(object):
             player_2 = UserAI(self.okno, 2)
             player_3 = UserAI(self.okno, 3)
             player_4 = UserAI(self.okno, 4)
+            print("wybrano", ilosc_graczy ," żywych graczy")
         elif ilosc_graczy == 2 :
             player_1 = User(self.okno, 1)
             player_2 = UserAI(self.okno, 2)
             player_3 = User(self.okno, 3)
             player_4 = UserAI(self.okno, 4)
+            print("wybrano", ilosc_graczy, " żywych graczy")
         elif ilosc_graczy == 3 :
             player_1 = User(self.okno, 1)
             player_2 = User(self.okno, 2)
             player_3 = User(self.okno, 3)
             player_4 = UserAI(self.okno, 4)
+            print("wybrano", ilosc_graczy, " żywych graczy")
         elif ilosc_graczy == 4 :
             player_1 = User(self.okno, 1)
             player_2 = User(self.okno, 2)
             player_3 = User(self.okno, 3)
             player_4 = User(self.okno, 4)
+            print("wybrano", ilosc_graczy, " żywych graczy")
 
+        elif ilosc_graczy == 5 :
+            player_1 = UserAI(self.okno, 1)
+            player_2 = UserAI(self.okno, 2)
+            player_3 = UserAI(self.okno, 3)
+            player_4 = UserAI(self.okno, 4)
+            print("wybrano 0 żywych graczy")
         else:
             player_1 = User(self.okno, 1)
             player_2 = User(self.okno, 2)
             player_3 = User(self.okno, 3)
             player_4 = User(self.okno, 4)
+            print("wybrano domyślne żywych graczy")
 
 
 
@@ -330,7 +341,7 @@ class Board(object):
         while True:
             event = pygame.event.wait()
             if (event.type == pygame.KEYDOWN and (
-                    event.key == pygame.K_ESCAPE or event.key == pygame.K_1 or event.key == pygame.K_2 or event.key == pygame.K_3 or event.key == pygame.K_4)) or event.type == pygame.QUIT:
+                    event.key == pygame.K_ESCAPE or event.key == pygame.K_1 or event.key == pygame.K_2 or event.key == pygame.K_3 or event.key == pygame.K_4 or event.key == pygame.K_5)) or event.type == pygame.QUIT:
                 break
         if event.type == pygame.QUIT:
             print("Wyjście")
@@ -351,6 +362,10 @@ class Board(object):
             elif event.key == pygame.K_4:
                 print("klawisz_4")
                 return 4
+            #tylko do debugowania
+            elif event.key == pygame.K_5:
+                print("klawisz_5")
+                return 5
             else:
                 print("klawisz_inny")
         else:
