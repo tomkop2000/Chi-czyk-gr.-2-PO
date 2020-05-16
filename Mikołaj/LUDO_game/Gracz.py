@@ -228,6 +228,17 @@ class Gracz():
         self.pozycja[pionek-1] = (self.mapa_pozycji[self.suma_oczek[pionek-1]-1][0], self.mapa_pozycji[self.suma_oczek[pionek-1]-1][1])
         print("suma oczek: ",self.suma_oczek[pionek-1])
 
+        if self.kolor == self.kolor_paleta[0]:
+            czyja_kolej = 1
+        elif self.kolor == self.kolor_paleta[1]:
+            czyja_kolej = 2
+        elif self.kolor == self.kolor_paleta[2]:
+            czyja_kolej = 3
+        elif self.kolor == self.kolor_paleta[3]:
+            czyja_kolej = 4
+
+        player_1.bicie(player_1, player_2, player_3, player_4,czyja_kolej, pionek)
+
 
         if self.pionki_stan[pionek-1] == 3:
             if self.suma_oczek[pionek - 1] == (self.domek_wejscie_chodnik + 5):
@@ -659,7 +670,7 @@ class Gracz():
                                     print("Niedobry ruch")
                                 """
 
-                    player_1.bicie(player_1, player_2, player_3, player_4, kolejka, pionek)
+
 
 
 
@@ -818,7 +829,7 @@ class Gracz():
                     pygame.display.update()
 
 
-                player_1.bicie(player_1, player_2, player_3, player_4, kolejka, pionek)
+
                 self.board_draw()
                 for i in range(4):
                     player_1.draw(i)
