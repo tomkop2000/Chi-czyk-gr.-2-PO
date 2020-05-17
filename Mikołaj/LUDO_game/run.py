@@ -14,7 +14,7 @@ from LUDO_nagrody import kotek
 import time
 
 #
-#Bardzo przepraszam za błędy ortograficzne
+# Bardzo przepraszam za błędy ortograficzne
 #
 
 
@@ -29,7 +29,6 @@ class Board(object):
     resolution_y = 720
     okno = pygame.display.set_mode((resolution_x, resolution_y))
 
-
     def __init__(self):
         """
         Konstruktor planszy do gry. Przygotowuje okienko gry.
@@ -37,37 +36,36 @@ class Board(object):
 
         pygame.display.set_caption('Chińczyk')
 
-
-#tu będzie inicjalzacja obiektów
+        # tu będzie inicjalzacja obiektów
         print("Ile żywych graczy?")
         ilosc_graczy = self.key_check()
 
-        if ilosc_graczy == 1 :
+        if ilosc_graczy == 1:
             player_1 = User(self.okno, 1)
             player_2 = UserAI(self.okno, 2)
             player_3 = UserAI(self.okno, 3)
             player_4 = UserAI(self.okno, 4)
-            print("wybrano", ilosc_graczy ," żywych graczy")
-        elif ilosc_graczy == 2 :
+            print("wybrano", ilosc_graczy, " żywych graczy")
+        elif ilosc_graczy == 2:
             player_1 = User(self.okno, 1)
             player_2 = UserAI(self.okno, 2)
             player_3 = User(self.okno, 3)
             player_4 = UserAI(self.okno, 4)
             print("wybrano", ilosc_graczy, " żywych graczy")
-        elif ilosc_graczy == 3 :
+        elif ilosc_graczy == 3:
             player_1 = User(self.okno, 1)
             player_2 = User(self.okno, 2)
             player_3 = User(self.okno, 3)
             player_4 = UserAI(self.okno, 4)
             print("wybrano", ilosc_graczy, " żywych graczy")
-        elif ilosc_graczy == 4 :
+        elif ilosc_graczy == 4:
             player_1 = User(self.okno, 1)
             player_2 = User(self.okno, 2)
             player_3 = User(self.okno, 3)
             player_4 = User(self.okno, 4)
             print("wybrano", ilosc_graczy, " żywych graczy")
 
-        elif ilosc_graczy == 5 :
+        elif ilosc_graczy == 5:
             player_1 = UserAI(self.okno, 1)
             player_2 = UserAI(self.okno, 2)
             player_3 = UserAI(self.okno, 3)
@@ -80,31 +78,22 @@ class Board(object):
             player_4 = User(self.okno, 4)
             print("wybrano domyślne żywych graczy")
 
+        # numery od 1 do 4 to numer gracza
+        # cieakwą opcją byłaby tablica obiektów, zaletą wyłaby wygoda w urzywaniu niektórych funcji,
+        # wada to bardziej skomplikowana implementacja
+        # powyższe 3 zdania zostawiam ale nie są aktualne prawdopodobnie
 
+        # tutj zrobię deklaracje obiektów:
+        # soby od przeszkód:
 
-
-
-
-        #numery od 1 do 4 to numer gracza
-        #cieakwą opcją byłaby tablica obiektów, zaletą wyłaby wygoda w urzywaniu niektórych funcji,
-        #wada to bardziej skomplikowana implementacja
-        #powyższe 3 zdania zostawiam ale nie są aktualne prawdopodobnie
-
-
-
-        #tutj zrobię deklaracje obiektów:
-        #soby od przeszkód:
-
-        #osoby od nagród:
-
-
+        # osoby od nagród:
 
         event = pygame.event.clear()
 
         counter = 0
 
-        player_1.logika_gry(player_1,player_2,player_3,player_4)
-        #player_1.logika_gry(player_1,player_2,player_3,player_4,wilk, krasnoludek, niedzwiedz,krolik,swMikolaj,kotek)
+        player_1.logika_gry(player_1, player_2, player_3, player_4)
+        # player_1.logika_gry(player_1,player_2,player_3,player_4,wilk, krasnoludek, niedzwiedz,krolik,swMikolaj,kotek)
 
         """
         # pętla gry, nie urzywamy systemu tick i delta time bo klatka gry jest zamrażana więc jest wydajniej i łatwiej
@@ -182,12 +171,7 @@ class Board(object):
             
         """
 
-
-
-        #self.key_check()
-
-
-
+        # self.key_check()
 
     def board_draw(self):
         pygame.draw.rect(self.okno, (0, 0, 0), (0, 0, 288, 288))
@@ -386,7 +370,7 @@ class Board(object):
             elif event.key == pygame.K_4:
                 print("klawisz_4")
                 return 4
-            #tylko do debugowania
+            # tylko do debugowania
             elif event.key == pygame.K_5:
                 print("klawisz_5")
                 return 5
@@ -394,7 +378,6 @@ class Board(object):
                 print("klawisz_inny")
         else:
             print("inna akcja")
-
 
 
 if __name__ == "__main__":
