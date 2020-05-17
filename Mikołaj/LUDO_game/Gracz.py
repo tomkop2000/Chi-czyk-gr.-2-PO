@@ -1,4 +1,9 @@
+# coding=utf-8
+# coding: utf-8
 import pygame, sys, os
+
+
+
 
 import random
 

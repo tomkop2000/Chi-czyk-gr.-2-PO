@@ -1,7 +1,11 @@
+# coding=utf-8
+# coding: utf-8
 import random
 import codecs
 from tkinter import *
 import winsound
+
+
 
 
 # klasa Nagroda (z niej dziedziczone beda tresci nagord i wartosci, ktore one przyjmuja)

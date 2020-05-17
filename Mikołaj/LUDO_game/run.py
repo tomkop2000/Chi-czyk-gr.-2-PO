@@ -1,4 +1,6 @@
 # coding=utf-8
+# coding: utf-8
+
 import pygame, sys
 import os
 import pygame.locals

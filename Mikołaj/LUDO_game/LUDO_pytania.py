@@ -1,8 +1,13 @@
+# coding=utf-8
+# coding: utf-8
 # importowanie potrzebych bibliotek
 import random
 import codecs
 from tkinter import *
 import winsound
+
+
+
 
 
 # klasa przeszkoda (z niej dziedziczone beda pytania i opsoiwedzi)
