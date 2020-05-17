@@ -14,11 +14,11 @@ from LUDO_nagrody import kotek
 import time
 
 #
-# Bardzo przepraszam za błedy ortograficzne
+# Bardzo przepraszam za bledy ortograficzne
 #
 
 
-pygame.init()  # funkcja ładujaca moduły pyGame'a odpowiedzialne m.in. za dźwiek czy grafike
+pygame.init()  # funkcja ladujaca moduly pyGame'a odpowiedzialne m.in. za dzwiek czy grafike
 
 
 class Board(object):
@@ -79,7 +79,7 @@ class Board(object):
             print("wybrano domyślne zywych graczy")
 
         # numery od 1 do 4 to numer gracza
-        # cieakwa opcja byłaby tablica obiektów, zaleta wyłaby wygoda w urzywaniu niektórych funcji,
+        # cieakwa opcja bylaby tablica obiektów, zaleta wylaby wygoda w urzywaniu niektórych funcji,
         # wada to bardziej skomplikowana implementacja
         # powyzsze 3 zdania zostawiam ale nie sa aktualne prawdopodobnie
 
@@ -96,7 +96,7 @@ class Board(object):
         # player_1.logika_gry(player_1,player_2,player_3,player_4,wilk, krasnoludek, niedzwiedz,krolik,swMikolaj,kotek)
 
         """
-        # petla gry, nie urzywamy systemu tick i delta time bo klatka gry jest zamrazana wiec jest wydajniej i łatwiej
+        # petla gry, nie urzywamy systemu tick i delta time bo klatka gry jest zamrazana wiec jest wydajniej i latwiej
         #jest panować nad tym co sie dzieje w kodzie
         while True:
 
@@ -110,7 +110,7 @@ class Board(object):
         #w pythonie nie ma switcha wiec bedzie tu taki twór:
                 if i ==1:
                     oczka = player_1.losowanie()
-                    print("Kostka wylosowała: ", oczka )#mozna wrzucić wyświetlenie tego tekstu do medoty ale na razie nie
+                    print("Kostka wylosowala: ", oczka )#mozna wrzucić wyświetlenie tego tekstu do medoty ale na razie nie
                     print("Podaj nr. pionka, którym chcesz sie ruszyć.")
 
                     pionek = player_1.wyborPionka()
@@ -121,7 +121,7 @@ class Board(object):
 
                 elif i == 2:
                     oczka = player_2.losowanie()
-                    print("Kostka wylosowała: ", oczka)
+                    print("Kostka wylosowala: ", oczka)
                     print("Podaj nr. pionka, którym chcesz sie ruszyć.")
 
                     pionek = player_2.wyborPionka()
@@ -132,7 +132,7 @@ class Board(object):
 
                 elif i == 3:
                     oczka = player_3.losowanie()
-                    print("Kostka wylosowała: ", oczka)
+                    print("Kostka wylosowala: ", oczka)
                     print("Podaj nr. pionka, którym chcesz sie ruszyć.")
 
                     pionek = player_3.wyborPionka()
@@ -143,7 +143,7 @@ class Board(object):
 
                 elif i == 4:
                     oczka = player_4.losowanie()
-                    print("Kostka wylosowała: ", oczka)
+                    print("Kostka wylosowala: ", oczka)
                     print("Podaj nr. pionka, którym chcesz sie ruszyć.")
 
                     pionek = player_4.wyborPionka()
@@ -343,7 +343,7 @@ class Board(object):
         print("Kostka: ", oczka)
         return oczka
 
-    # funkcja do sprawdzania kliknietego przycisku (funkcja działa dopuki nie "kliknie" sie 1, 2, 3, 4, ESC lub przycisku zamkniecia
+    # funkcja do sprawdzania kliknietego przycisku (funkcja dziala dopuki nie "kliknie" sie 1, 2, 3, 4, ESC lub przycisku zamkniecia
     # funkcja "zamraza rysowanie klatki zdzieki czemu "oszczedzamy" zasoby
     def key_check(self):
         while True:
