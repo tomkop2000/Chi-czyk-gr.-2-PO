@@ -224,14 +224,14 @@ class Gracz():
             if isinstance(self, UserAI):
                 print("Bot nie bedzie mial nagrody ani przeszkody")
             elif isinstance(self, User):
-                self.nagroda(pionek)
+                self.nagroda(pionek, player_1, player_2, player_3, player_4)
 
         if (self.suma_oczek[pionek - 1] == 4 or self.suma_oczek[pionek - 1] == 8 or self.suma_oczek[pionek - 1] == 13 or self.suma_oczek[pionek - 1] == 19 or self.suma_oczek[pionek - 1] == 28 or
                 self.suma_oczek[pionek - 1] == 33 or self.suma_oczek[pionek - 1] == 37 or self.suma_oczek[pionek - 1] == 42 or self.suma_oczek[pionek - 1] == 47):
             if isinstance(self, UserAI):
                 print("Bot nie bedzie mial nagrody ani przeszkody")
             elif isinstance(self, User):
-                self.przeszkoda(pionek)
+                self.przeszkoda(pionek, player_1, player_2, player_3, player_4)
 
         self.circle(pionek - 1)
 
@@ -278,7 +278,7 @@ class Gracz():
 
     # bedzie urzywane w losowyRuchTest bo tak bedzie najwygodniej
     # samo wyzwolenie tej czesci bedzie w losowyRuchTest
-    def nagroda(self, pionek):
+    def nagroda(self, pionek, player_1, player_2, player_3, player_4):
         obiekt = random.randint(1, 3)
         nagroda = 0
 
@@ -300,20 +300,20 @@ class Gracz():
         # 8 dodatkowy rzut kostka do tego pionka co sie nim wlasnie ruszyles
 
         if nagroda >= 1 and nagroda <= 6:
-            self.losowyRuchTest(pionek, nagroda)
+            self.losowyRuchTest(pionek, nagroda, player_1, player_2, player_3, player_4)
 
         elif nagroda == 7:
             if self.pionki_stan[0] == 1:
-                self.losowyRuchTest(1, 1)
+                self.losowyRuchTest(1, 1, player_1, player_2, player_3, player_4)
             elif self.pionki_stan[1] == 1:
-                self.losowyRuchTest(2, 1)
+                self.losowyRuchTest(2, 1, player_1, player_2, player_3, player_4)
             elif self.pionki_stan[2] == 1:
-                self.losowyRuchTest(3, 1)
+                self.losowyRuchTest(3, 1, player_1, player_2, player_3, player_4)
             elif self.pionki_stan[3] == 1:
-                self.losowyRuchTest(4, 1)
+                self.losowyRuchTest(4, 1, player_1, player_2, player_3, player_4)
 
         elif nagroda == 8:
-            self.losowyRuchTest(pionek, self.losowanie())
+            self.losowyRuchTest(pionek, self.losowanie(), player_1, player_2, player_3, player_4)
 
         """
         elif nagroda == 2:
@@ -328,7 +328,7 @@ class Gracz():
             pass
         """
 
-    def przeszkoda(self, pionek):
+    def przeszkoda(self, pionek, player_1, player_2, player_3, player_4):
         obiekt = random.randint(1, 3)
         przeszkoda = 0
 
