@@ -3,7 +3,8 @@
 # importowanie potrzebych bibliotek
 import random
 import codecs
-from tkinter import *
+#from tkinter import *
+import tkinter
 import winsound
 
 
