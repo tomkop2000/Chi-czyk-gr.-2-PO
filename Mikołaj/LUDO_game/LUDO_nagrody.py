@@ -4,7 +4,7 @@ from tkinter import *
 import winsound
 
 
-# klasa Nagroda (z niej dziedziczone beda tresci nagórd i wartosci, które one przyjmuja)
+# klasa Nagroda (z niej dziedziczone beda tresci nagord i wartosci, ktore one przyjmuja)
 class Nagroda:
     def __init__(self, data_string):  # wczytuje dane ze stringa, dane musza być ustawione w odpowiedzniej kolejnosci, jak nizej i oddzielone znakiem "|"
         tmp_1 = data_string.split("|")
@@ -12,15 +12,15 @@ class Nagroda:
         self.wartosc = tmp_1[1]
         self.nagrody = tmp_1[2]
 
-    def display_nagroda(self):  # metoda odpowiadajaca za zwrócenie warosci a odpowiadajacej tresci nagrody
+    def display_nagroda(self):  # metoda odpowiadajaca za zwrocenie warosci a odpowiadajacej tresci nagrody
         a = str(self.nagrody)
         return a
 
-    def display_wartosc(self):  # metoda odpowiadajaca za zwrócenie warosci a odpowiadajacej tresci wartosci
+    def display_wartosc(self):  # metoda odpowiadajaca za zwrocenie warosci a odpowiadajacej tresci wartosci
         a = int(self.wartosc)
         return a
 
-    def load_nagrody():  # funkcja ladujaca tresci nagród z pliku
+    def load_nagrody():  # funkcja ladujaca tresci nagrod z pliku
         # ladowanie bazy pytan o nazwie pytania.txt
         file_name = "nagrody.txt"
         f = codecs.open(file_name, "r", encoding="utf-8")
@@ -32,12 +32,12 @@ class Nagroda:
         f.close()
         return nagroda_1
 
-    # klasa Okna, która dziedziczy z klasy Nagroda
+    # klasa Okna, ktora dziedziczy z klasy Nagroda
 
 
 class Okna(Nagroda):
-    nagroda_1 = []  # lista obiektów Nagroda, nawazniejszy element, przechowuje najwiaznejsze dane dotyczace tresci nagród
-    nagroda_1 = Nagroda.load_nagrody()  # ladowanie tresci nagród do tablicy
+    nagroda_1 = []  # lista obiektow Nagroda, nawazniejszy element, przechowuje najwiaznejsze dane dotyczace tresci nagrod
+    nagroda_1 = Nagroda.load_nagrody()  # ladowanie tresci nagrod do tablicy
 
     def choice_nagroda():  # metoda zwracajaca losowa wartosć z przedzialu od 1 do 8
         choice_number = random.randint(1, 8)
@@ -73,11 +73,11 @@ class Okna(Nagroda):
 
         przycisk = Button(okno, text="OK", command=okno.destroy)  # przycisk zamykajacy okno
 
-        # pakowanie przycisków i grafik
+        # pakowanie przyciskow i grafik
         label_grafika.pack(side="top", fill=X, expand=True)
         label.pack(side="top", fill=X, expand=True)
         przycisk.pack(expand=False)
-        okno.mainloop()  # petla która uniemozliwia zamkniecie okna
+        okno.mainloop()  # petla ktora uniemozliwia zamkniecie okna
         winsound.PlaySound(None, winsound.SND_PURGE)  # zakonczenie odtwarzania muzyki jesli nie zakonczylo sie to wczesniej
         return b
 
