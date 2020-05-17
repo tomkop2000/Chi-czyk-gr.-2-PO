@@ -76,7 +76,7 @@ class Board(object):
             player_2 = User(self.okno, 2)
             player_3 = User(self.okno, 3)
             player_4 = User(self.okno, 4)
-            print("wybrano domyślne zywych graczy")
+            print("wybrano domyslne zywych graczy")
 
         # numery od 1 do 4 to numer gracza
         # cieakwa opcja bylaby tablica obiektów, zaleta wylaby wygoda w urzywaniu niektórych funcji,
@@ -97,7 +97,7 @@ class Board(object):
 
         """
         # petla gry, nie urzywamy systemu tick i delta time bo klatka gry jest zamrazana wiec jest wydajniej i latwiej
-        #jest panować nad tym co sie dzieje w kodzie
+        #jest panowac nad tym co sie dzieje w kodzie
         while True:
 
 
@@ -110,8 +110,8 @@ class Board(object):
         #w pythonie nie ma switcha wiec bedzie tu taki twór:
                 if i ==1:
                     oczka = player_1.losowanie()
-                    print("Kostka wylosowala: ", oczka )#mozna wrzucić wyświetlenie tego tekstu do medoty ale na razie nie
-                    print("Podaj nr. pionka, którym chcesz sie ruszyć.")
+                    print("Kostka wylosowala: ", oczka )#mozna wrzucic wyswietlenie tego tekstu do medoty ale na razie nie
+                    print("Podaj nr. pionka, którym chcesz sie ruszyc.")
 
                     pionek = player_1.wyborPionka()
 
@@ -122,7 +122,7 @@ class Board(object):
                 elif i == 2:
                     oczka = player_2.losowanie()
                     print("Kostka wylosowala: ", oczka)
-                    print("Podaj nr. pionka, którym chcesz sie ruszyć.")
+                    print("Podaj nr. pionka, którym chcesz sie ruszyc.")
 
                     pionek = player_2.wyborPionka()
 
@@ -133,7 +133,7 @@ class Board(object):
                 elif i == 3:
                     oczka = player_3.losowanie()
                     print("Kostka wylosowala: ", oczka)
-                    print("Podaj nr. pionka, którym chcesz sie ruszyć.")
+                    print("Podaj nr. pionka, którym chcesz sie ruszyc.")
 
                     pionek = player_3.wyborPionka()
 
@@ -144,7 +144,7 @@ class Board(object):
                 elif i == 4:
                     oczka = player_4.losowanie()
                     print("Kostka wylosowala: ", oczka)
-                    print("Podaj nr. pionka, którym chcesz sie ruszyć.")
+                    print("Podaj nr. pionka, którym chcesz sie ruszyc.")
 
                     pionek = player_4.wyborPionka()
 
@@ -165,7 +165,7 @@ class Board(object):
 
 
 
-            #update ekranu jak sie wszystko zrobi co ma sie zrobić
+            #update ekranu jak sie wszystko zrobi co ma sie zrobic
             pygame.display.update()
 
 
@@ -352,11 +352,11 @@ class Board(object):
                     event.key == pygame.K_ESCAPE or event.key == pygame.K_1 or event.key == pygame.K_2 or event.key == pygame.K_3 or event.key == pygame.K_4 or event.key == pygame.K_5)) or event.type == pygame.QUIT:
                 break
         if event.type == pygame.QUIT:
-            print("Wyjście")
+            print("Wyjscie")
             sys.exit(0)
         elif event.type == pygame.KEYDOWN:
             if event.key == pygame.K_ESCAPE:
-                print("Wyjście")
+                print("Wyjscie")
                 sys.exit(0)
             elif event.key == pygame.K_1:
                 print("klawisz_1")
