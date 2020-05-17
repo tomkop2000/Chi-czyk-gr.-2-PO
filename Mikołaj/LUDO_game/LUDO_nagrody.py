@@ -2,9 +2,9 @@
 # coding: utf-8
 import random
 import codecs
-#from tkinter import *
-import tkinter
-import winsound
+from tkinter import *
+#import tkinter
+#import winsound
 
 
 
@@ -67,7 +67,7 @@ class Okna(Nagroda):
         a = Okna.nagroda_wys(choice_number)
         b = Okna.nagroda_wartosc(choice_number)
 
-        winsound.PlaySound(muzyka, winsound.SND_ASYNC | winsound.SND_ALIAS)  # rozpoczecie odtwarzania muzyki
+        #winsound.PlaySound(muzyka, winsound.SND_ASYNC | winsound.SND_ALIAS)  # rozpoczecie odtwarzania muzyki
 
         okno = Tk()
         okno.geometry("500x350+700+300")  # wyswietlenie okna o rozmiarze 500x500 pikseli
@@ -83,7 +83,7 @@ class Okna(Nagroda):
         label.pack(side="top", fill=X, expand=True)
         przycisk.pack(expand=False)
         okno.mainloop()  # petla ktora uniemozliwia zamkniecie okna
-        winsound.PlaySound(None, winsound.SND_PURGE)  # zakonczenie odtwarzania muzyki jesli nie zakonczylo sie to wczesniej
+        #winsound.PlaySound(None, winsound.SND_PURGE)  # zakonczenie odtwarzania muzyki jesli nie zakonczylo sie to wczesniej
         return b
 
 
