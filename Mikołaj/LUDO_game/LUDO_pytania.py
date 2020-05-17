@@ -3,9 +3,9 @@
 # importowanie potrzebych bibliotek
 import random
 import codecs
-#from tkinter import *
-import tkinter
-import winsound
+from tkinter import *
+#import tkinter
+#import winsound
 
 
 
@@ -119,7 +119,7 @@ class Okno(Przeszkoda):
         c = Okno.odp_B(choice_number)
         d = Okno.odp_C(choice_number)
 
-        winsound.PlaySound(muzyka, winsound.SND_ASYNC | winsound.SND_ALIAS)  # rozpoczecie odtwarzania muzyki
+        #winsound.PlaySound(muzyka, winsound.SND_ASYNC | winsound.SND_ALIAS)  # rozpoczecie odtwarzania muzyki
 
         okno = Tk()
         okno.geometry("600x500+700+300")  # wyswietlenie okna o rozmiarze 500x500 pikseli
@@ -146,7 +146,7 @@ class Okno(Przeszkoda):
         przycisk.pack(expand=False)
         okno.mainloop()  # petla ktora uniemożliwia zamkniecie okna
         k = Okno.sprawdzanie(odp.get(), choice_number)  # sprawdzenie czy wybrana odpowiedź byla poprawna oraz zwrocenie wartosci logicznej 1 dla poprawnej odpowiedzi i 0 dla blednej
-        winsound.PlaySound(None, winsound.SND_PURGE)  # zakonczenie odtwarzania muzyki jesli nie zakonczylo sie to wczesniej
+        #.PlaySound(None, winsound.SND_PURGE)  # zakonczenie odtwarzania muzyki jesli nie zakonczylo sie to wczesniej
         return k
 
 
