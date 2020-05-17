@@ -58,7 +58,7 @@ class Gracz():
                     [360, 168], [360, 216], [360, 264], [360, 312], [648, 360], [600, 360], [552, 360], [504, 360], [456, 360], [408, 360], [360, 648], [360, 600], [360, 552], [360, 504], [360, 456],
                     [360, 408]]
 
-    # konstruktor ktory w zalezności od numeru (gracza) przypozadkuje( wiem ze z bledem napisane) odpowiedni kolor i bazowa pozycje
+    # konstruktor ktory w zaleznoci od numeru (gracza) przypozadkuje( wiem ze z bledem napisane) odpowiedni kolor i bazowa pozycje
     def __init__(self, screen, numer):
         self.screen = screen
         self.okno = screen
@@ -72,7 +72,7 @@ class Gracz():
 
             self.suma_oczek = [0, 0, 0, 0]
 
-            self.numer = 1  # moglem dać na ońcu tylko numer = self.numer ale nie chcialem
+            self.numer = 1  # moglem dac na koncu tylko numer = self.numer ale nie chcialem
 
             self.domek_wejscie = self.mapa_pozycji_domek[0]
 
@@ -162,11 +162,11 @@ class Gracz():
             elif self.suma_oczek[pionek - 1] + int(oczka) == self.domek_wejscie:
                 pass
 
-            # to musi oznaczać tylko ze jesteśmy kilka pol przed wejściem do domku
+            # to musi oznaczac tylko ze jestesmy kilka pol przed wejsciem do domku
             elif ((self.suma_oczek[pionek - 1] + oczka) > self.domek_wejscie) and (self.suma_oczek[pionek - 1] < self.domek_wejscie) and self.kolor != self.kolor_paleta[0]:
 
                 oczka = oczka - (self.domek_wejscie - self.suma_oczek[pionek - 1])
-                self.suma_oczek[pionek - 1] = self.domek_wejscie_chodnik - 1 + oczka  # + oczka ,powinno być ale ...
+                self.suma_oczek[pionek - 1] = self.domek_wejscie_chodnik - 1 + oczka  # + oczka ,powinno byc ale ...
 
                 self.pionki_stan[pionek - 1] = 3
 
@@ -257,22 +257,22 @@ class Gracz():
                 if (event.type == pygame.KEYDOWN and (event.key == pygame.K_ESCAPE)) or event.type == pygame.QUIT:
                     break
             if event.type == pygame.QUIT:
-                print("Wyjście")
+                print("Wyjscie")
                 os.system("cls")
                 sys.exit(0)
             elif event.type == pygame.KEYDOWN:
                 if event.key == pygame.K_ESCAPE:
-                    print("Wyjście")
+                    print("Wyjscie")
                     os.system("cls")
                     sys.exit(0)
 
-    # metoda losujaca jak koska, (w przyszlości wyświetli liczbe oczek)
+    # metoda losujaca jak koska, (w przyszlosci wyswietli liczbe oczek)
     def losowanie(self):
         oczka = random.randint(1, 6)
         return oczka
 
     # bedzie urzywane w losowyRuchTest bo tak bedzie najwygodniej
-    # samo wyzwolenie tej cześci bedzie w losowyRuchTest
+    # samo wyzwolenie tej czesci bedzie w losowyRuchTest
     def nagroda(self, pionek):
         obiekt = random.randint(1, 3)
         nagroda = 0
@@ -291,8 +291,8 @@ class Gracz():
         # 4 +4 pola
         # 5 +5 pol
         # 6 +6 pol
-        # 7 pionek z bazy wychodzi #to musze jeszcze bardzije przemyśleć ale powinno sie latwo dać
-        # 8 dodatkowy rzut kostka do tego pionka co sie nim wlaśnie ruszyleś
+        # 7 pionek z bazy wychodzi #to musze jeszcze bardzije przemyslec ale powinno sie latwo dac
+        # 8 dodatkowy rzut kostka do tego pionka co sie nim wlasnie ruszyles
 
         if nagroda >= 1 and nagroda <= 6:
             self.losowyRuchTest(pionek, nagroda)
@@ -335,12 +335,12 @@ class Gracz():
             przeszkoda = niedzwiedz.pytanie_niedzwiedzia()
 
         if przeszkoda == 1:
-            print("Przezyleś spotkanie, ufff....")
+            print("Przezyles spotkanie, ufff....")
         elif przeszkoda == 0:
             self.pozycja[pionek - 1] = self.pozycja_poczatkowa[pionek - 1]
             self.pionki_stan[pionek - 1] = 1
             self.suma_oczek[pionek - 1] = self.suma_oczek_poczatkowa[pionek - 1]
-            print("Polegleś!!!!")
+            print("Polegles!!!!")
 
     # takie sa poczatkowe zasady tej gry
     def gra_poczatkowe_losowanie(self, p_1, p_2, p_3, p_4):
@@ -511,7 +511,7 @@ class Gracz():
                     # print("BREAK zadzialal")
                     break
 
-                oczka = player_1.losowanie()  # to tylko metoda nie robiaca nic z wartościami obiektow
+                oczka = player_1.losowanie()  # to tylko metoda nie robiaca nic z wartosciami obiektow
 
                 print("Kostka wylosowala: ", oczka)
 
@@ -526,7 +526,7 @@ class Gracz():
                     if kolejka == 1:
 
                         while True:
-                            pionek = player_1.wyborPionka()  # to tylko metoda nie robiaca nic z wartościami obiektow
+                            pionek = player_1.wyborPionka()  # to tylko metoda nie robiaca nic z wartosciami obiektow
                             if player_1.pionki_stan[pionek - 1] == 1:
                                 player_1.losowyRuchTest(pionek, 1, player_1, player_2, player_3, player_4)  # tu daje pionek na start
 
@@ -548,7 +548,7 @@ class Gracz():
                     elif kolejka == 2:
 
                         while True:
-                            pionek = player_2.wyborPionka()  # to tylko metoda nie robiaca nic z wartościami obiektow
+                            pionek = player_2.wyborPionka()  # to tylko metoda nie robiaca nic z wartosciami obiektow
                             if player_2.pionki_stan[pionek - 1] == 1:
                                 player_2.losowyRuchTest(pionek, 1, player_1, player_2, player_3, player_4)  # tu daje pionek na start
                                 break
@@ -567,7 +567,7 @@ class Gracz():
 
                     elif kolejka == 3:
                         while True:
-                            pionek = player_3.wyborPionka()  # to tylko metoda nie robiaca nic z wartościami obiektow
+                            pionek = player_3.wyborPionka()  # to tylko metoda nie robiaca nic z wartosciami obiektow
                             if player_3.pionki_stan[pionek - 1] == 1:
                                 player_3.losowyRuchTest(pionek, 1, player_1, player_2, player_3, player_4)  # tu daje pionek na start
                                 break
@@ -586,7 +586,7 @@ class Gracz():
 
                     elif kolejka == 4:
                         while True:
-                            pionek = player_4.wyborPionka()  # to tylko metoda nie robiaca nic z wartościami obiektow
+                            pionek = player_4.wyborPionka()  # to tylko metoda nie robiaca nic z wartosciami obiektow
                             if player_4.pionki_stan[pionek - 1] == 1:
                                 player_4.losowyRuchTest(pionek, 1, player_1, player_2, player_3, player_4)  # tu daje pionek na start
                                 break
@@ -623,7 +623,7 @@ class Gracz():
                         if player_1.pionki_stan == [1, 1, 1, 1]:
                             licznik += 1
 
-                        # warunek taki ze mamy za duzo oczek dla pionka o stusie 3 ale nie ma zadnego pionka coby mozna siebylo nim ruszzyć, ten warunek nalezy skopiować dla kazdego
+                        # warunek taki ze mamy za duzo oczek dla pionka o stusie 3 ale nie ma zadnego pionka coby mozna siebylo nim ruszzyc, ten warunek nalezy skopiowac dla kazdego
                         # edit: juz go nie ma
 
                         elif (player_1.pionki_stan[0] == 2 or player_1.pionki_stan[1] == 2 or player_1.pionki_stan[2] == 2 or player_1.pionki_stan[3] == 2 or player_1.pionki_stan[0] == 3 or
@@ -655,7 +655,7 @@ class Gracz():
                         if player_2.pionki_stan == [1, 1, 1, 1]:
                             licznik += 1
 
-                        # warunek taki ze mamy za duzo oczek dla pionka o stusie 3 ale nie ma zadnego pionka coby mozna siebylo nim ruszzyć, ten warunek nalezy skopiować dla kazdego
+                        # warunek taki ze mamy za duzo oczek dla pionka o stusie 3 ale nie ma zadnego pionka coby mozna siebylo nim ruszzyc, ten warunek nalezy skopiowac dla kazdego
 
                         elif (player_2.pionki_stan[0] == 2 or player_2.pionki_stan[1] == 2 or player_2.pionki_stan[2] == 2 or player_2.pionki_stan[3] == 2 or player_2.pionki_stan[0] == 3 or
                               player_2.pionki_stan[1] == 3 or player_2.pionki_stan[2] == 3 or player_2.pionki_stan[3] == 3):
@@ -684,7 +684,7 @@ class Gracz():
                         if player_3.pionki_stan == [1, 1, 1, 1]:
                             licznik += 1
 
-                        # warunek taki ze mamy za duzo oczek dla pionka o stusie 3 ale nie ma zadnego pionka coby mozna siebylo nim ruszzyć, ten warunek nalezy skopiować dla kazdego
+                        # warunek taki ze mamy za duzo oczek dla pionka o stusie 3 ale nie ma zadnego pionka coby mozna siebylo nim ruszzyc, ten warunek nalezy skopiowac dla kazdego
 
                         elif (player_3.pionki_stan[0] == 2 or player_3.pionki_stan[1] == 2 or player_3.pionki_stan[2] == 2 or player_3.pionki_stan[3] == 2 or player_3.pionki_stan[1] == 3 or
                               player_3.pionki_stan[2] == 3 or player_3.pionki_stan[3] == 3):
@@ -712,7 +712,7 @@ class Gracz():
                         if player_4.pionki_stan == [1, 1, 1, 1]:
                             licznik += 1
 
-                        # warunek taki ze mamy za duzo oczek dla pionka o stusie 3 ale nie ma zadnego pionka coby mozna siebylo nim ruszzyć, ten warunek nalezy skopiować dla kazdego
+                        # warunek taki ze mamy za duzo oczek dla pionka o stusie 3 ale nie ma zadnego pionka coby mozna siebylo nim ruszzyc, ten warunek nalezy skopiowac dla kazdego
 
                         elif (player_4.pionki_stan[0] == 2 or player_4.pionki_stan[1] == 2 or player_4.pionki_stan[2] == 2 or player_4.pionki_stan[3] == 2 or player_4.pionki_stan[0] == 3 or
                               player_4.pionki_stan[1] == 3 or player_4.pionki_stan[2] == 3 or player_4.pionki_stan[3] == 3):
@@ -1070,12 +1070,12 @@ class User(Gracz):
                     event.key == pygame.K_ESCAPE or event.key == pygame.K_1 or event.key == pygame.K_2 or event.key == pygame.K_3 or event.key == pygame.K_4)) or event.type == pygame.QUIT:
                 break
         if event.type == pygame.QUIT:
-            print("Wyjście")
+            print("Wyjscie")
             os.system("cls")
             sys.exit(0)
         elif event.type == pygame.KEYDOWN:
             if event.key == pygame.K_ESCAPE:
-                print("Wyjście")
+                print("Wyjscie")
                 os.system("cls")
                 sys.exit(0)
             elif event.key == pygame.K_1:
