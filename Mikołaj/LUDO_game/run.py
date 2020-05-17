@@ -14,11 +14,11 @@ from LUDO_nagrody import kotek
 import time
 
 #
-# Bardzo przepraszam za błędy ortograficzne
+# Bardzo przepraszam za błedy ortograficzne
 #
 
 
-pygame.init()  # funkcja ładująca moduły pyGame'a odpowiedzialne m.in. za dźwięk czy grafikę
+pygame.init()  # funkcja ładujaca moduły pyGame'a odpowiedzialne m.in. za dźwiek czy grafike
 
 
 class Board(object):
@@ -34,10 +34,10 @@ class Board(object):
         Konstruktor planszy do gry. Przygotowuje okienko gry.
         """
 
-        pygame.display.set_caption('Chińczyk')
+        pygame.display.set_caption('Chinczyk')
 
-        # tu będzie inicjalzacja obiektów
-        print("Ile żywych graczy?")
+        # tu bedzie inicjalzacja obiektów
+        print("Ile zywych graczy?")
         ilosc_graczy = self.key_check()
 
         if ilosc_graczy == 1:
@@ -45,45 +45,45 @@ class Board(object):
             player_2 = UserAI(self.okno, 2)
             player_3 = UserAI(self.okno, 3)
             player_4 = UserAI(self.okno, 4)
-            print("wybrano", ilosc_graczy, " żywych graczy")
+            print("wybrano", ilosc_graczy, " zywych graczy")
         elif ilosc_graczy == 2:
             player_1 = User(self.okno, 1)
             player_2 = UserAI(self.okno, 2)
             player_3 = User(self.okno, 3)
             player_4 = UserAI(self.okno, 4)
-            print("wybrano", ilosc_graczy, " żywych graczy")
+            print("wybrano", ilosc_graczy, " zywych graczy")
         elif ilosc_graczy == 3:
             player_1 = User(self.okno, 1)
             player_2 = User(self.okno, 2)
             player_3 = User(self.okno, 3)
             player_4 = UserAI(self.okno, 4)
-            print("wybrano", ilosc_graczy, " żywych graczy")
+            print("wybrano", ilosc_graczy, " zywych graczy")
         elif ilosc_graczy == 4:
             player_1 = User(self.okno, 1)
             player_2 = User(self.okno, 2)
             player_3 = User(self.okno, 3)
             player_4 = User(self.okno, 4)
-            print("wybrano", ilosc_graczy, " żywych graczy")
+            print("wybrano", ilosc_graczy, " zywych graczy")
 
         elif ilosc_graczy == 5:
             player_1 = UserAI(self.okno, 1)
             player_2 = UserAI(self.okno, 2)
             player_3 = UserAI(self.okno, 3)
             player_4 = UserAI(self.okno, 4)
-            print("wybrano 0 żywych graczy")
+            print("wybrano 0 zywych graczy")
         else:
             player_1 = User(self.okno, 1)
             player_2 = User(self.okno, 2)
             player_3 = User(self.okno, 3)
             player_4 = User(self.okno, 4)
-            print("wybrano domyślne żywych graczy")
+            print("wybrano domyślne zywych graczy")
 
         # numery od 1 do 4 to numer gracza
-        # cieakwą opcją byłaby tablica obiektów, zaletą wyłaby wygoda w urzywaniu niektórych funcji,
+        # cieakwa opcja byłaby tablica obiektów, zaleta wyłaby wygoda w urzywaniu niektórych funcji,
         # wada to bardziej skomplikowana implementacja
-        # powyższe 3 zdania zostawiam ale nie są aktualne prawdopodobnie
+        # powyzsze 3 zdania zostawiam ale nie sa aktualne prawdopodobnie
 
-        # tutj zrobię deklaracje obiektów:
+        # tutj zrobie deklaracje obiektów:
         # soby od przeszkód:
 
         # osoby od nagród:
@@ -96,79 +96,79 @@ class Board(object):
         # player_1.logika_gry(player_1,player_2,player_3,player_4,wilk, krasnoludek, niedzwiedz,krolik,swMikolaj,kotek)
 
         """
-        # pętla gry, nie urzywamy systemu tick i delta time bo klatka gry jest zamrażana więc jest wydajniej i łatwiej
-        #jest panować nad tym co się dzieje w kodzie
+        # petla gry, nie urzywamy systemu tick i delta time bo klatka gry jest zamrazana wiec jest wydajniej i łatwiej
+        #jest panować nad tym co sie dzieje w kodzie
         while True:
-    
-    
+
+
             self.board_draw()
-    
+
             for i in range(1,5):
                 os.system("cls")
                 print("Tura gracza nr: ", i)
-    
-        #w pythonie nie ma switcha więc będzie tu taki twór:
+
+        #w pythonie nie ma switcha wiec bedzie tu taki twór:
                 if i ==1:
                     oczka = player_1.losowanie()
-                    print("Kostka wylosowała: ", oczka )#można wrzucić wyświetlenie tego tekstu do medoty ale na razie nie
-                    print("Podaj nr. pionka, którym chcesz się ruszyć.")
-    
+                    print("Kostka wylosowała: ", oczka )#mozna wrzucić wyświetlenie tego tekstu do medoty ale na razie nie
+                    print("Podaj nr. pionka, którym chcesz sie ruszyć.")
+
                     pionek = player_1.wyborPionka()
-    
+
                     player_1.losowyRuchTest(pionek, oczka)
-    
+
                     #print(player_1.pozycja)#metoda debugowa
-    
+
                 elif i == 2:
                     oczka = player_2.losowanie()
                     print("Kostka wylosowała: ", oczka)
-                    print("Podaj nr. pionka, którym chcesz się ruszyć.")
-    
+                    print("Podaj nr. pionka, którym chcesz sie ruszyć.")
+
                     pionek = player_2.wyborPionka()
-    
+
                     player_2.losowyRuchTest(pionek, oczka)
-    
+
                     #print(player_2.pozycja)#metoda debugowa
-    
+
                 elif i == 3:
                     oczka = player_3.losowanie()
                     print("Kostka wylosowała: ", oczka)
-                    print("Podaj nr. pionka, którym chcesz się ruszyć.")
-    
+                    print("Podaj nr. pionka, którym chcesz sie ruszyć.")
+
                     pionek = player_3.wyborPionka()
-    
+
                     player_3.losowyRuchTest(pionek, oczka)
-    
+
                     #print(player_2.pozycja)#metoda debugowa
-    
+
                 elif i == 4:
                     oczka = player_4.losowanie()
                     print("Kostka wylosowała: ", oczka)
-                    print("Podaj nr. pionka, którym chcesz się ruszyć.")
-    
+                    print("Podaj nr. pionka, którym chcesz sie ruszyć.")
+
                     pionek = player_4.wyborPionka()
-    
+
                     player_4.losowyRuchTest(pionek, oczka)
-    
+
                     #print(player_2.pozycja)#metoda debugowa
-    
+
                 self.board_draw()
                 # narysowanie wszystkich pozycji pionków
                 for n in range(4):
                     player_1.draw(n)
-    
+
                     player_2.draw(n)
                     player_3.draw(n)
                     player_4.draw(n)
                 pygame.display.update()
-    
-    
-    
-    
-            #update ekranu jak się wszystko zrobi co ma się zrobić
+
+
+
+
+            #update ekranu jak sie wszystko zrobi co ma sie zrobić
             pygame.display.update()
-            
-            
+
+
         """
 
         # self.key_check()
@@ -343,8 +343,8 @@ class Board(object):
         print("Kostka: ", oczka)
         return oczka
 
-    # funkcja do sprawdzania klikniętego przycisku (funkcja działa dopuki nie "kliknie" się 1, 2, 3, 4, ESC lub przycisku zamknięcia
-    # funkcja "zamraża rysowanie klatki zdzięki czemu "oszczędzamy" zasoby
+    # funkcja do sprawdzania kliknietego przycisku (funkcja działa dopuki nie "kliknie" sie 1, 2, 3, 4, ESC lub przycisku zamkniecia
+    # funkcja "zamraza rysowanie klatki zdzieki czemu "oszczedzamy" zasoby
     def key_check(self):
         while True:
             event = pygame.event.wait()
