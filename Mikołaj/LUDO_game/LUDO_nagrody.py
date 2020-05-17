@@ -6,7 +6,7 @@ import winsound
 
 # klasa Nagroda (z niej dziedziczone beda tresci nagord i wartosci, ktore one przyjmuja)
 class Nagroda:
-    def __init__(self, data_string):  # wczytuje dane ze stringa, dane musza być ustawione w odpowiedzniej kolejnosci, jak nizej i oddzielone znakiem "|"
+    def __init__(self, data_string):  # wczytuje dane ze stringa, dane musza byc ustawione w odpowiedzniej kolejnosci, jak nizej i oddzielone znakiem "|"
         tmp_1 = data_string.split("|")
         self.nr_nagrody = tmp_1[0]
         self.wartosc = tmp_1[1]
@@ -39,18 +39,18 @@ class Okna(Nagroda):
     nagroda_1 = []  # lista obiektow Nagroda, nawazniejszy element, przechowuje najwiaznejsze dane dotyczace tresci nagrod
     nagroda_1 = Nagroda.load_nagrody()  # ladowanie tresci nagrod do tablicy
 
-    def choice_nagroda():  # metoda zwracajaca losowa wartosć z przedzialu od 1 do 8
+    def choice_nagroda():  # metoda zwracajaca losowa wartosc z przedzialu od 1 do 8
         choice_number = random.randint(1, 8)
         choice_number = str(choice_number)
         return choice_number
 
-    def nagroda_wys(choice_number):  # metoda zwracajaca wartosć a odpowiadajaca tresci nagrody z wylosowanej nagrody
+    def nagroda_wys(choice_number):  # metoda zwracajaca wartosc a odpowiadajaca tresci nagrody z wylosowanej nagrody
         for nagroda in Okna.nagroda_1:
             if (nagroda.wartosc == choice_number):
                 a = nagroda.display_nagroda()
                 return a
 
-    def nagroda_wartosc(choice_number):  # metoda zwracajaca wartosć a odpowiadajaca wartosci z wylosowanej nagrody
+    def nagroda_wartosc(choice_number):  # metoda zwracajaca wartosc a odpowiadajaca wartosci z wylosowanej nagrody
         for nagroda in Okna.nagroda_1:
             if (nagroda.wartosc == choice_number):
                 a = nagroda.display_wartosc()
