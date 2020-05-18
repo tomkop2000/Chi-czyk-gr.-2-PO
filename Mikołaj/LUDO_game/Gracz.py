@@ -138,11 +138,12 @@ class Gracz():
 
         print("Gracz nr.", self.numer, " uruchomiony.")
 
+    #rysowanie pionka
     def circle(self, i):
 
         pygame.draw.circle(self.screen, self.kolor, (self.pozycja[i][0], self.pozycja[i][1]), 15)
 
-    # tymczasowa funkcja na ruch
+    # metoda na ruch
     def losowyRuchTest(self, pionek, oczka, player_1, player_2, player_3, player_4):
         # pass
 
@@ -192,7 +193,7 @@ class Gracz():
             self.suma_oczek[pionek - 1] = (self.domek_wejscie_chodnik + 5)
 
         self.pozycja[pionek - 1] = (self.mapa_pozycji[self.suma_oczek[pionek - 1] - 1][0], self.mapa_pozycji[self.suma_oczek[pionek - 1] - 1][1])
-        print("suma oczek: ", self.suma_oczek[pionek - 1])
+        #print("suma oczek: ", self.suma_oczek[pionek - 1])
 
         if self.kolor == self.kolor_paleta[0]:
             czyja_kolej = 1
@@ -271,12 +272,11 @@ class Gracz():
                     os.system("cls")
                     sys.exit(0)
 
-    # metoda losujaca jak koska, (w przyszlosci wyswietli liczbe oczek)
+    # metoda losujaca jak kostka
     def losowanie(self):
         oczka = random.randint(1, 6)
         return oczka
 
-    # bedzie urzywane w losowyRuchTest bo tak bedzie najwygodniej
     # samo wyzwolenie tej czesci bedzie w losowyRuchTest
     def nagroda(self, pionek, player_1, player_2, player_3, player_4):
         obiekt = random.randint(1, 3)
@@ -328,6 +328,7 @@ class Gracz():
             pass
         """
 
+    # samo wyzwolenie tej czesci bedzie w losowyRuchTest
     def przeszkoda(self, pionek, player_1, player_2, player_3, player_4):
         obiekt = random.randint(1, 3)
         przeszkoda = 0
@@ -342,10 +343,28 @@ class Gracz():
         if przeszkoda == 1:
             print("Przezyles spotkanie, ufff....")
         elif przeszkoda == 0:
+            if self.kolor == self.kolor_paleta[0]:
+                print("graczu nr 1")
+            elif self.kolor == self.kolor_paleta[1]:
+                print("graczu nr 2")
+            elif self.kolor == self.kolor_paleta[2]:
+                print("graczu nr 3")
+            elif self.kolor == self.kolor_paleta[3]:
+                print("graczu nr 4")
+
             self.pozycja[pionek - 1] = self.pozycja_poczatkowa[pionek - 1]
             self.pionki_stan[pionek - 1] = 1
             self.suma_oczek[pionek - 1] = self.suma_oczek_poczatkowa[pionek - 1]
             print("Polegles!!!!")
+
+            self.board_draw()
+            for i in range(4):
+                player_1.draw(i)
+                player_2.draw(i)
+                player_3.draw(i)
+                player_4.draw(i)
+
+            pygame.display.update()
 
     # takie sa poczatkowe zasady tej gry
     def gra_poczatkowe_losowanie(self, p_1, p_2, p_3, p_4):
@@ -460,50 +479,70 @@ class Gracz():
 
             ###########################################################
             if kolejka == 1:
+                """
                 print("pionki stan = ", player_1.pionki_stan)
                 print("pionki syma_oczek = ", player_1.suma_oczek)
                 print("pionki wejscie_chodnik = ", player_1.domek_wejscie_chodnik)
                 print("pionki wejscie_domek = ", player_1.domek_wejscie)
+                """
                 if player_1.pionki_stan == [1, 1, 1, 1]:
                     max_licznik = 3
+                elif (  (player_1.pionki_stan[0] != 2 and player_1.pionki_stan[0] != 3) and (player_1.pionki_stan[1] == 2 and player_1.pionki_stan[1] == 3) and (player_1.pionki_stan[2] == 2 and player_1.pionki_stan[2] == 3) and (player_1.pionki_stan[3] == 2 and player_1.pionki_stan[3] == 3)  ):
+                   max_licznik = 3
 
-                elif (player_1.pionki_stan[0] == 2 or player_1.pionki_stan[1] == 2 or player_1.pionki_stan[2] == 2 or player_1.pionki_stan[3] == 2):
+                elif (  (player_1.pionki_stan[0] == 2 or player_1.pionki_stan[0] == 3) or (player_1.pionki_stan[1] == 2 or player_1.pionki_stan[1] == 3) or (player_1.pionki_stan[2] == 2 or player_1.pionki_stan[2] == 3) or (player_1.pionki_stan[3] == 2 or player_1.pionki_stan[3] == 3)  ):
                     max_licznik = 1
 
 
+
             elif kolejka == 2:
+                """
                 print("pionki stan = ", player_2.pionki_stan)
                 print("pionki syma_oczek = ", player_2.suma_oczek)
                 print("pionki wejscie_chodnik = ", player_2.domek_wejscie_chodnik)
                 print("pionki wejscie_domek = ", player_2.domek_wejscie)
+                """
                 if player_2.pionki_stan == [1, 1, 1, 1]:
                     max_licznik = 3
+                elif (  (player_2.pionki_stan[0] != 2 and player_2.pionki_stan[0] != 3) and (player_2.pionki_stan[1] == 2 and player_2.pionki_stan[1] == 3) and (player_2.pionki_stan[2] == 2 and player_2.pionki_stan[2] == 3) and (player_2.pionki_stan[3] == 2 and player_2.pionki_stan[3] == 3)  ):
+                   max_licznik = 3
 
-                elif (player_2.pionki_stan[0] == 2 or player_2.pionki_stan[1] == 2 or player_2.pionki_stan[2] == 2 or player_2.pionki_stan[3] == 2):
+                elif (  (player_2.pionki_stan[0] == 2 or player_2.pionki_stan[0] == 3) or (player_2.pionki_stan[1] == 2 or player_2.pionki_stan[1] == 3) or (player_2.pionki_stan[2] == 2 or player_2.pionki_stan[2] == 3) or (player_2.pionki_stan[3] == 2 or player_2.pionki_stan[3] == 3)  ):
                     max_licznik = 1
 
 
+
             elif kolejka == 3:
+                """
                 print("pionki stan = ", player_3.pionki_stan)
                 print("pionki syma_oczek = ", player_3.suma_oczek)
                 print("pionki wejscie_chodnik = ", player_3.domek_wejscie_chodnik)
                 print("pionki wejscie_domek = ", player_3.domek_wejscie)
+                """
                 if player_3.pionki_stan == [1, 1, 1, 1]:
                     max_licznik = 3
+                elif (  (player_3.pionki_stan[0] != 2 and player_3.pionki_stan[0] != 3) and (player_3.pionki_stan[1] == 2 and player_3.pionki_stan[1] == 3) and (player_3.pionki_stan[2] == 2 and player_3.pionki_stan[2] == 3) and (player_3.pionki_stan[3] == 2 and player_3.pionki_stan[3] == 3)  ):
+                   max_licznik = 3
 
-                elif (player_3.pionki_stan[0] == 2 or player_3.pionki_stan[1] == 2 or player_3.pionki_stan[2] == 2 or player_3.pionki_stan[3] == 2):
+                elif (  (player_3.pionki_stan[0] == 2 or player_3.pionki_stan[0] == 3) or (player_3.pionki_stan[1] == 2 or player_3.pionki_stan[1] == 3) or (player_3.pionki_stan[2] == 2 or player_3.pionki_stan[2] == 3) or (player_3.pionki_stan[3] == 2 or player_3.pionki_stan[3] == 3)  ):
                     max_licznik = 1
 
+
             elif kolejka == 4:
+                """
                 print("pionki stan = ", player_4.pionki_stan)
                 print("pionki syma_oczek = ", player_4.suma_oczek)
                 print("pionki wejscie_chodnik = ", player_4.domek_wejscie_chodnik)
                 print("pionki wejscie_domek = ", player_4.domek_wejscie)
+                """
                 if player_4.pionki_stan == [1, 1, 1, 1]:
                     max_licznik = 3
+                elif (  (player_4.pionki_stan[0] != 2 and player_4.pionki_stan[0] != 3) and (player_4.pionki_stan[1] == 2 and player_4.pionki_stan[1] == 3) and (player_4.pionki_stan[2] == 2 and player_4.pionki_stan[2] == 3) and (player_4.pionki_stan[3] == 2 and player_4.pionki_stan[3] == 3)  ):
+                   max_licznik = 3
 
-                elif (player_4.pionki_stan[0] == 2 or player_4.pionki_stan[1] == 2 or player_4.pionki_stan[2] == 2 or player_4.pionki_stan[3] == 2):
+                elif (  (player_4.pionki_stan[0] == 2 or player_4.pionki_stan[0] == 3) or (player_4.pionki_stan[1] == 2 or player_4.pionki_stan[1] == 3) or (player_4.pionki_stan[2] == 2 or player_4.pionki_stan[2] == 3) or (player_4.pionki_stan[3] == 2 or player_4.pionki_stan[3] == 3)  ):
                     max_licznik = 1
+
 
             # print("stan max_licznik = ", max_licznik)
 
@@ -769,18 +808,25 @@ class Gracz():
             pygame.display.update()
 
             if kolejka == 1:
+                """
                 print("pionki stan = ", player_1.pionki_stan)
                 print("pionki suma_oczek = ", player_1.suma_oczek)
+                """
             elif kolejka == 2:
+                """
                 print("pionki stan = ", player_2.pionki_stan)
                 print("pionki suma_oczek = ", player_2.suma_oczek)
+                """
             elif kolejka == 3:
+                """
                 print("pionki stan = ", player_3.pionki_stan)
                 print("pionki suma_oczek = ", player_3.suma_oczek)
+                 """
             elif kolejka == 4:
+                """
                 print("pionki stan = ", player_4.pionki_stan)
                 print("pionki suma_oczek = ", player_4.suma_oczek)
-
+                """
             print("Koniec tury gracza nr. ", kolejka)
             print(" ")
             kolejka += 1
