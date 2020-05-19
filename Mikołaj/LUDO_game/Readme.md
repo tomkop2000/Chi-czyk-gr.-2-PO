@@ -1,4 +1,10 @@
 Aby uruchomić skopiuj cały folder LUDO_game i uruchom run.py
+Wymagane biblioteki:
+-tkinter
+-pygame
+-winsound
+
+
 
 To do:
 - naniesienia na plnaszę przeszkód i nagród (jest do tego człowiek)
