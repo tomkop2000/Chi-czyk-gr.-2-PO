@@ -63,6 +63,12 @@ class Gracz():
                     [360, 168], [360, 216], [360, 264], [360, 312], [648, 360], [600, 360], [552, 360], [504, 360], [456, 360], [408, 360], [360, 648], [360, 600], [360, 552], [360, 504], [360, 456],
                     [360, 408]]
 
+    pozycja_poczatkowa =[[0, 0], [0, 0], [0, 0], [0, 0]]
+
+    suma_oczek = [0, 0, 0, 0]
+
+    suma_oczek_poczatkowa = suma_oczek
+
     # konstruktor ktory w zaleznoci od numeru (gracza) przypozadkuje( wiem ze z bledem napisane) odpowiedni kolor i bazowa pozycje
     def __init__(self, screen, numer):
         self.screen = screen
@@ -85,6 +91,16 @@ class Gracz():
 
 
 
+
+
+            self.pionki_stan = [1, 1, 1, 1]
+
+            self.pozycja_poczatkowa = self.pozycja
+
+            self.suma_oczek_poczatkowa = self.suma_oczek
+
+
+
         elif numer == 2:
             self.pozycja = [[528 + self.pozycjaPionkiBaza[0][0], 96 + self.pozycjaPionkiBaza[0][1]], [528 + self.pozycjaPionkiBaza[1][0], 96 + self.pozycjaPionkiBaza[1][1]],
                             [528 + self.pozycjaPionkiBaza[2][0], 96 + self.pozycjaPionkiBaza[2][1]], [528 + self.pozycjaPionkiBaza[3][0], 96 + self.pozycjaPionkiBaza[3][1]]]
@@ -98,6 +114,16 @@ class Gracz():
             self.domek_wejscie = self.mapa_pozycji_domek[1]
 
             self.domek_wejscie_chodnik = self.mapa_pozycji_domek_chodnik[1]
+
+
+
+
+
+            self.pionki_stan = [1, 1, 1, 1]
+
+            self.pozycja_poczatkowa = self.pozycja
+
+            self.suma_oczek_poczatkowa = self.suma_oczek
 
         elif numer == 3:
             self.pozycja = [[528 + self.pozycjaPionkiBaza[0][0], 528 + self.pozycjaPionkiBaza[0][1]], [528 + self.pozycjaPionkiBaza[1][0], 528 + self.pozycjaPionkiBaza[1][1]],
@@ -113,6 +139,16 @@ class Gracz():
 
             self.domek_wejscie_chodnik = self.mapa_pozycji_domek_chodnik[2]
 
+
+
+
+
+            self.pionki_stan = [1, 1, 1, 1]
+
+            self.pozycja_poczatkowa = self.pozycja
+
+            self.suma_oczek_poczatkowa = self.suma_oczek
+
         elif numer == 4:
             self.pozycja = [[96 + self.pozycjaPionkiBaza[0][0], 528 + self.pozycjaPionkiBaza[0][1]], [96 + self.pozycjaPionkiBaza[1][0], 528 + self.pozycjaPionkiBaza[1][1]],
                             [96 + self.pozycjaPionkiBaza[2][0], 528 + self.pozycjaPionkiBaza[2][1]], [96 + self.pozycjaPionkiBaza[3][0], 528 + self.pozycjaPionkiBaza[3][1]]]
@@ -127,14 +163,21 @@ class Gracz():
 
             self.domek_wejscie_chodnik = self.mapa_pozycji_domek_chodnik[3]
 
+
+
+
+
+            self.pionki_stan = [1, 1, 1, 1]
+
+            self.pozycja_poczatkowa = self.pozycja
+
+            self.suma_oczek_poczatkowa = self.suma_oczek
+
+
         else:
             pass
 
-        self.pionki_stan = [1, 1, 1, 1]
 
-        self.pozycja_poczatkowa = self.pozycja
-
-        self.suma_oczek_poczatkowa = self.suma_oczek
 
         print("Gracz nr.", self.numer, " uruchomiony.")
 
