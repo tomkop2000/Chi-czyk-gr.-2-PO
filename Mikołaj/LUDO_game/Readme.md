@@ -1,4 +1,6 @@
 Aby uruchomić skopiuj cały folder LUDO_game i uruchom run.py
+
+
 Wymagane biblioteki:
 -tkinter
 -pygame
