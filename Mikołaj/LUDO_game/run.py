@@ -33,7 +33,7 @@ class Board(object):
 
     def __init__(self):
         """
-        Konstruktor planszy do gry. Przygotowuje okienko gry.
+        Konstruktor planszy do gry. Przygotowuje okienko gry.vvvvvvvvvvvvvvvvvvvvvvvvv
         """
 
         pygame.display.set_caption('Chinczyk')

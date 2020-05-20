@@ -63,6 +63,8 @@ class Gracz():
                     [360, 168], [360, 216], [360, 264], [360, 312], [648, 360], [600, 360], [552, 360], [504, 360], [456, 360], [408, 360], [360, 648], [360, 600], [360, 552], [360, 504], [360, 456],
                     [360, 408]]
 
+
+
     pozycja_poczatkowa =[[0, 0], [0, 0], [0, 0], [0, 0]]
 
     suma_oczek = [0, 0, 0, 0]
@@ -400,6 +402,29 @@ class Gracz():
             self.suma_oczek[pionek - 1] = self.suma_oczek_poczatkowa[pionek - 1]
             print("Polegles!!!!")
 
+            i = (pionek-1)
+            if self.kolor == self.kolor_paleta[0]:
+                player_1.pozycja[i] = [96 + self.pozycjaPionkiBaza[i][0], 96 + self.pozycjaPionkiBaza[i][1]]
+                player_1.pionki_stan[i] = 1
+                player_1.suma_oczek[i] = 0
+                print("Polegles!!!!")
+            elif self.kolor == self.kolor_paleta[1]:
+                player_2.pozycja[i] = [528 + self.pozycjaPionkiBaza[i][0], 96 + self.pozycjaPionkiBaza[i][1]]
+                player_2.pionki_stan[i] = 1
+                player_2.suma_oczek[i] = 13
+                print("Polegles!!!!")
+            elif self.kolor == self.kolor_paleta[2]:
+                player_3.pozycja[i] = [528 + self.pozycjaPionkiBaza[i][0], 528 + self.pozycjaPionkiBaza[i][1]]
+                player_3.pionki_stan[i] = 1
+                player_3.suma_oczek[i] = 26
+                print("Polegles!!!!")
+            elif self.kolor == self.kolor_paleta[3]:
+                player_4.pozycja[i] = [96 + self.pozycjaPionkiBaza[i][0], 528 + self.pozycjaPionkiBaza[i][1]]
+                player_4.pionki_stan[i] = 1
+                player_4.suma_oczek[i] = 39
+                print("Polegles!!!!")
+
+
             self.board_draw()
             for i in range(4):
                 player_1.draw(i)
@@ -408,6 +433,8 @@ class Gracz():
                 player_4.draw(i)
 
             pygame.display.update()
+
+
 
     # takie sa poczatkowe zasady tej gry
     def gra_poczatkowe_losowanie(self, p_1, p_2, p_3, p_4):
