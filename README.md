@@ -7,7 +7,7 @@ Michał Stanisławski
 Tomasz Kopciński
 </b>
 
-Wersja końcowa znajduje się w folderze "Mikolaj"
+Wersja końcowa znajduje się w folderze "Mikołaj"
 
 środa 9.15
 
