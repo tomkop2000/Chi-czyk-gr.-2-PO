@@ -1,5 +1,3 @@
-# coding=utf-8
-# coding: utf-8
 import random
 import codecs
 from tkinter import *
@@ -107,11 +105,11 @@ class kotek(Okna):  # klasa kotek, dziedzicząda z klasy Okna
         k = Okna.okno(muzyka, obraz)  # wyświetlenie okna i przypisanie k wartości logicznej
         return k
 
-
-
-print(krolik.nagroda_krolika())
 """
-print(swMikolaj.nagroda_swMikolaja())
-
-print(kotek.nagroda_kota())
+k = krolik.nagroda_krolika()
+print(k)
+m = swMikolaj.nagroda_swMikolaja()
+print(m)
+l = kotek.nagroda_kota()
+print(l)
 """

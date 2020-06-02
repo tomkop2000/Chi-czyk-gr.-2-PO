@@ -49,11 +49,11 @@ class Nagroda:
 
         #powołanie przycisku i testu
 
-        odp = IntVar()
+        self.odp = IntVar()
 
-        self.przyciskA = Radiobutton(self.tk, text=self.odp_A, fg="red", value=1, variable=odp)  # wyświetlenie odpowiedzi A, której wartość jest równa 1
-        self.przyciskB = Radiobutton(self.tk, text=self.odp_B, fg="red", value=2, variable=odp)  # wyświetlenie odpowiedzi B, której wartość jest równa 2
-        self.przyciskC = Radiobutton(self.tk, text=self.odp_C, fg="red", value=3, variable=odp)  # wyświetlenie odpowiedzi C, której wartość jest równa 3
+        self.przyciskA = Radiobutton(self.tk, text=self.odp_A, fg="red", value=1, variable=self.odp)  # wyświetlenie odpowiedzi A, której wartość jest równa 1
+        self.przyciskB = Radiobutton(self.tk, text=self.odp_B, fg="red", value=2, variable=self.odp)  # wyświetlenie odpowiedzi B, której wartość jest równa 2
+        self.przyciskC = Radiobutton(self.tk, text=self.odp_C, fg="red", value=3, variable=self.odp)  # wyświetlenie odpowiedzi C, której wartość jest równa 3
 
         self.przycisk = Button(self.tk, text="OK", command=self.tk.destroy)  # przycisk zamykający okno
         self.label = Label(self.tk, text=self.pytanie)#tekst pytnia
@@ -78,17 +78,7 @@ class Nagroda:
         self.time = 1
 
 
-        self.draw()  # Changed per Bryan Oakley's comment
-        mainloop()
-        winsound.PlaySound(None, winsound.SND_PURGE)  # zakończenie odtwarzania muzyki jeśli nie zakończyło się to wcześniej
 
-        #czesc sprawdzajaca poprawnosc pytania
-        #print(odp.get())
-        #print(self.poprawna_odp)
-        if int(odp.get() )== int(self.poprawna_odp):
-            return 1
-        else:
-            return 0
 
 
 
@@ -98,9 +88,6 @@ class wilk(Nagroda):
         muzyka= "wilk.wav"
         winsound.PlaySound(muzyka, winsound.SND_ASYNC | winsound.SND_ALIAS)
 
-
-
-
     def draw(self):
         if self.pozycja > 300:
             self.velocity = self.velocity * (-1)
@@ -108,13 +95,8 @@ class wilk(Nagroda):
             self.velocity = self.velocity * (-1)
 
         self.canvas.move(self.postac, self.velocity, 0)
-        self.canvas.after(self.time, self.draw)  # (time_delay, method_to_execute)
+        self.id = self.canvas.after(self.time, self.draw)  # (time_delay, method_to_execute)
         self.pozycja += self.velocity
-
-
-
-
-
 
     def animacja(self):
         obraz = "wilk.gif"
@@ -124,8 +106,21 @@ class wilk(Nagroda):
 
     def pytanie_wilka(self):
         self.glos()
-        a =self.animacja()
-        return a
+        self.animacja()
+
+
+        self.draw()  # Changed per Bryan Oakley's comment
+        mainloop()
+        self.canvas.after_cancel(self.id)
+        winsound.PlaySound(None, winsound.SND_PURGE)  # zakończenie odtwarzania muzyki jeśli nie zakończyło się to wcześniej
+
+        #czesc sprawdzajaca poprawnosc pytania
+        #print(odp.get())
+        #print(self.poprawna_odp)
+        if int(self.odp.get() )== int(self.poprawna_odp):
+            return 1
+        else:
+            return 0
 
 if __name__ == "__main__":
     wilk = wilk()
