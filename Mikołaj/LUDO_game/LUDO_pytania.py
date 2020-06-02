@@ -170,9 +170,10 @@ class niedzwiedz(Okno):
         return k
 
 
-"""
+
 k=wilk.pytanie_wilka()
 print(k)
+"""
 m=krasnoludek.pytanie_krasnala()
 print(m)
 l=niedzwiedz.pytanie_niedzwiedzia()

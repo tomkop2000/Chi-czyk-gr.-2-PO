@@ -108,9 +108,9 @@ class kotek(Okna):  # klasa kotek, dziedzicząda z klasy Okna
         return k
 
 
-"""
-print(krolik.nagroda_krolika())
 
+print(krolik.nagroda_krolika())
+"""
 print(swMikolaj.nagroda_swMikolaja())
 
 print(kotek.nagroda_kota())
